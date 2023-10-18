@@ -2,6 +2,7 @@
 using HotelRepository.Models;
 using HotelRepository.Repositories;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Accommodation.EF.Repositories
 {
@@ -16,12 +17,12 @@ namespace Accommodation.EF.Repositories
 
         public List<Room> GetAll()
         {
-            throw new System.NotImplementedException();
+            return _context.Rooms.ToList();
         }
 
         public Room GetById(int id)
         {
-            throw new System.NotImplementedException();
+            return _context.Rooms.FirstOrDefault(r => r.Id == id);
         }
     }
 }
