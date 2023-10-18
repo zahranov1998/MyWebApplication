@@ -1,5 +1,6 @@
 ﻿using HotelRepository.Models;
 using System.Data.Entity;
+using System.Runtime.Serialization;
 
 namespace Accommodation.EF.Migration
 {

@@ -10,7 +10,6 @@ namespace HotelRepository.Models
 
         public string NativeTitle { get; set; }
 
-
         public City City { get; set; }
 
         public int CityId { get; set; }
