@@ -1,4 +1,4 @@
-﻿using HotelRepository.Models;
+﻿using Accommodation.Domain.Models;
 using System.Data.Entity.ModelConfiguration;
 
 namespace Accommodation.EF.Mappings

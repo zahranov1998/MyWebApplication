@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace HotelRepository.Models
+namespace Accommodation.Domain.Models
 {
     public class Country
     {

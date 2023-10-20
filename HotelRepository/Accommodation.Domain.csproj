@@ -7,8 +7,8 @@
     <ProjectGuid>{4086CB24-869B-4848-B612-B2C632549A07}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>HotelRepository</RootNamespace>
-    <AssemblyName>HotelRepository</AssemblyName>
+    <RootNamespace>Accommodation.Domain</RootNamespace>
+    <AssemblyName>Accommodation.Domain</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>

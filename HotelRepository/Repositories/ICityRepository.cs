@@ -1,6 +1,6 @@
-﻿using HotelRepository.Models;
+﻿using Accommodation.Domain.Models;
 
-namespace HotelRepository.Repositories
+namespace Accommodation.Domain.Repositories
 {
     public interface ICityRepository : IRepository<City>
     {

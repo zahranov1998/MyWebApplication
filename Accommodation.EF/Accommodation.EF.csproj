@@ -109,9 +109,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\HotelRepository\HotelRepository.csproj">
+    <ProjectReference Include="..\HotelRepository\Accommodation.Domain.csproj">
       <Project>{4086cb24-869b-4848-b612-b2c632549a07}</Project>
-      <Name>HotelRepository</Name>
+      <Name>Accommodation.Domain</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

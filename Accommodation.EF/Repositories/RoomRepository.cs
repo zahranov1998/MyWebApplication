@@ -1,6 +1,6 @@
 ﻿using Accommodation.EF.Migration;
-using HotelRepository.Models;
-using HotelRepository.Repositories;
+using Accommodation.Domain.Models;
+using Accommodation.Domain.Repositories;
 using System.Collections.Generic;
 using System.Linq;
 

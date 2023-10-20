@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HotelRepository.Repositories
+namespace Accommodation.Domain.Repositories
 {
     public interface IRepository<T>
     {

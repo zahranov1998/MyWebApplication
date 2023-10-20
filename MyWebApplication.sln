@@ -9,7 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Controller", "Controller", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{29EC6264-62E2-4D7C-A89A-88C2CDB2A6DC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelRepository", "HotelRepository\HotelRepository.csproj", "{4086CB24-869B-4848-B612-B2C632549A07}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Accommodation.Domain", "HotelRepository\Accommodation.Domain.csproj", "{4086CB24-869B-4848-B612-B2C632549A07}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{224DFA11-9D47-4972-8ED4-2DEB348F1753}"
 EndProject
