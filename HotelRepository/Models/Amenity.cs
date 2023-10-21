@@ -4,10 +4,20 @@ namespace Accommodation.Domain.Models
 {
     public class Amenity
     {
-        public int Id { get; set; }
+        public int Id { get;private  set; }
 
-        public string Title { get; set; }
+        public string Title { get; private set; }     
 
-        public List<Hotel> Hotels { get; set; }
+        public List<Hotel> Hotels { get;private set; }
+
+        private Amenity()
+        {
+
+        }
+
+        public Amenity(string title)
+        {
+            Title = title;
+        }
     }
 }

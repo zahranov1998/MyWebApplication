@@ -15,6 +15,16 @@ namespace Accommodation.EF.Repositories
             _context = context;
         }
 
+        public void Create(Room aggregate)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void Delete(Room aggregate)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public List<Room> GetAll()
         {
             return _context.Rooms.ToList();

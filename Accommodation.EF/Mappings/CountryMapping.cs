@@ -12,7 +12,7 @@ namespace Accommodation.EF.Mappings
             Property(c => c.Id).IsRequired();
             Property(c => c.Name).IsRequired();
 
-            HasMany(c => c.Cities).WithRequired(c => c.Country);
+            HasMany(c => c.Cities).WithRequired(c => c.Country).HasForeignKey(c=>c.CountryId);
         }
     }
 }

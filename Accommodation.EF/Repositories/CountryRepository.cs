@@ -1,7 +1,6 @@
-﻿
-using Accommodation.EF.Migration;
-using Accommodation.Domain.Models;
+﻿using Accommodation.Domain.Models;
 using Accommodation.Domain.Repositories;
+using Accommodation.EF.Migration;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -13,8 +12,19 @@ namespace Accommodation.EF.Repositories
 
         public CountryRepository(AccommodationDbContext dbContext)
         {
-            _context= dbContext;
+            _context = dbContext;
         }
+
+        public void Create(Country aggregate)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void Delete(Country aggregate)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public List<Country> GetAll()
         {
             return _context.Countries.ToList();

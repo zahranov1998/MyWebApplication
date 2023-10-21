@@ -4,5 +4,6 @@ namespace Accommodation.Domain.Repositories
 {
     public interface IHotelRepository : IRepository<Hotel>
     {
+        void AddHotel(Hotel hotel);
     }
 }

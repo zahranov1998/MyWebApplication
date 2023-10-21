@@ -24,5 +24,22 @@ namespace Accommodation.EF.Repositories
         {
             return _context.Hotels.FirstOrDefault(h => h.Id == id);
         }
+
+        public void AddHotel(Hotel hotel)
+        {
+            _context.Hotels.Add(hotel);
+
+            _context.SaveChanges();
+        }
+
+        public void Create(Hotel aggregate)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void Delete(Hotel aggregate)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

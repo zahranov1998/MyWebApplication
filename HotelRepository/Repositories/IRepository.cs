@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Accommodation.Domain.Repositories
 {
@@ -11,5 +7,9 @@ namespace Accommodation.Domain.Repositories
         T GetById(int id);
 
         List<T> GetAll();
+
+        void Create(T aggregate);
+
+        void Delete(T aggregate);
     }
 }

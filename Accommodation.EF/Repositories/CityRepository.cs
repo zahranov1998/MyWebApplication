@@ -15,6 +15,16 @@ namespace Accommodation.EF.Repositories
             _context= dbContext;
         }
 
+        public void Create(City aggregate)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void Delete(City aggregate)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public List<City> GetAll()
         {
             return _context.Cities.ToList();

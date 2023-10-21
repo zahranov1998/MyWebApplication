@@ -2,14 +2,26 @@
 {
     public class Room
     {
-        public int Id { get; set; }
+        public int Id { get;private set; }
 
-        public int Capacity { get; set; }
+        public int Capacity { get; private set; }
 
-        public int CountOfBeds { get; set; }
+        public int CountOfBeds { get; private set; }
 
-        public Hotel Hotel { get; set; }
+        public Hotel Hotel { get; private set; }
 
-        public int HotelId { get; set; }
+        public int HotelId { get; private set; }
+
+        private Room()
+        {
+            
+        }
+
+        public Room(int capacity , int countOfBeds , int hotelId)
+        {
+            Capacity = capacity;
+            CountOfBeds = countOfBeds;
+            HotelId = hotelId;
+        }
     }
 }

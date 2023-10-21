@@ -15,6 +15,16 @@ namespace Accommodation.EF.Repositories
             _context = dbContext;
         }
 
+        public void Create(HotelGroup aggregate)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void Delete(HotelGroup aggregate)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public List<HotelGroup> GetAll()
         {
             return _context.HotelGroups.ToList();

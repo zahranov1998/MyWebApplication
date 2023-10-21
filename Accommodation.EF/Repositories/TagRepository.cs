@@ -15,6 +15,16 @@ namespace Accommodation.EF.Repositories
             _context = dbContext;
         }
 
+        public void Create(Tag aggregate)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void Delete(Tag aggregate)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public List<Tag> GetAll()
         {
             return _context.Tags.ToList();
