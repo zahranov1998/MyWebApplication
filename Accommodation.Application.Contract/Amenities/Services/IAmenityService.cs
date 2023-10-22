@@ -1,4 +1,5 @@
 ﻿using Accommodation.Application.Contract.Amenities.DTO;
+using System.Collections.Generic;
 
 namespace Accommodation.Application.Contract.Amenities.Services
 {
@@ -7,5 +8,7 @@ namespace Accommodation.Application.Contract.Amenities.Services
         void CreateAmenity(AmenityDTO amenity);
 
         AmenityDTO GetAmenityById(int id);
+
+        List<AmenityDTO> GetAmenities();
     }
 }

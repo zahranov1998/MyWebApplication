@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D8C46186-F65C-4B03-A4C0-AEDDA6B40566}</ProjectGuid>
+    <ProjectGuid>{94609D07-71CB-4EE2-AD5A-E65D6526104F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Accommodation.Application</RootNamespace>
-    <AssemblyName>Accommodation.Application</AssemblyName>
+    <RootNamespace>Accommodation.Interface.API</RootNamespace>
+    <AssemblyName>Accommodation.Interface.API</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -31,8 +31,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.9\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Http, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.9\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,34 +51,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Services\AmenityService.cs" />
-    <Compile Include="Mappers\AmenityMapper.cs" />
-    <Compile Include="Mappers\CityMapper.cs" />
-    <Compile Include="Mappers\CountryMapper.cs" />
-    <Compile Include="Mappers\HotelGroupMapper.cs" />
-    <Compile Include="Mappers\HotelMapper.cs" />
-    <Compile Include="Mappers\RoomMapper.cs" />
-    <Compile Include="Mappers\TagMapper.cs" />
+    <Compile Include="Controllers\AmenitiesController.cs" />
+    <Compile Include="Controllers\CitiesController.cs" />
+    <Compile Include="Controllers\CountriesController.cs" />
+    <Compile Include="Controllers\HotelGroupsController.cs" />
+    <Compile Include="Controllers\HotelsController.cs" />
+    <Compile Include="Controllers\RoomsController.cs" />
+    <Compile Include="Controllers\TagsController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\CityService.cs" />
-    <Compile Include="Services\CountryService.cs" />
-    <Compile Include="Services\HotelGroupService.cs" />
-    <Compile Include="Services\HotelService.cs" />
-    <Compile Include="Services\RoomService.cs" />
-    <Compile Include="Services\TagService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Accommodation.Application.Contract\Accommodation.Application.Contract.csproj">
       <Project>{437595d7-1fc2-46ab-a672-93822ac07249}</Project>
       <Name>Accommodation.Application.Contract</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Accommodation.EF\Accommodation.EF.csproj">
-      <Project>{934f45a6-dd47-4879-8887-57646a03a252}</Project>
-      <Name>Accommodation.EF</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\HotelRepository\Accommodation.Domain.csproj">
-      <Project>{4086cb24-869b-4848-b612-b2c632549a07}</Project>
-      <Name>Accommodation.Domain</Name>
+    <ProjectReference Include="..\Accommodation.Application\Accommodation.Application.csproj">
+      <Project>{d8c46186-f65c-4b03-a4c0-aedda6b40566}</Project>
+      <Name>Accommodation.Application</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

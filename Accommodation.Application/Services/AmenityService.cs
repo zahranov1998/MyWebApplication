@@ -5,6 +5,7 @@ using Accommodation.Domain.Models;
 using Accommodation.Domain.Repositories;
 using Accommodation.EF.Migration;
 using Accommodation.EF.Repositories;
+using System.Collections.Generic;
 
 namespace Accommodation.Application
 {
@@ -23,6 +24,13 @@ namespace Accommodation.Application
             var amenity = new Amenity(dto.Title);
 
             AmenityRepository.Create(amenity);
+        }
+
+        public List<AmenityDTO> GetAmenities()
+        {
+            var amenities = AmenityRepository.GetAll();
+
+            return AmenityMapper.MapToDTOs(amenities);
         }
 
         public AmenityDTO GetAmenityById(int id)

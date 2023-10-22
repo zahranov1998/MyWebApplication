@@ -8,11 +8,11 @@ using Accommodation.EF.Repositories;
 
 namespace Accommodation.Application.Services
 {
-    public class HotelGroupServices : IHotelGroupService
+    public class HotelGroupService : IHotelGroupService
     {
         public readonly IHotelGroupRepository HotelGroupRepository;
 
-        public HotelGroupServices()
+        public HotelGroupService()
         {
             var context = new AccommodationDbContext();
 

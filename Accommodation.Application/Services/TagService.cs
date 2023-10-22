@@ -7,11 +7,11 @@ using Accommodation.EF.Repositories;
 
 namespace Accommodation.Application.Services
 {
-    public class TagServices : ITagServices
+    public class TagService : ITagService
     {
         public readonly ITagRepository TagRepository;
 
-        public TagServices()
+        public TagService()
         {
             var context = new AccommodationDbContext();
 

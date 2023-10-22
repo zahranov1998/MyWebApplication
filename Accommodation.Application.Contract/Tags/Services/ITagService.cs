@@ -2,7 +2,7 @@
 
 namespace Accommodation.Application.Contract.Tags.Services
 {
-    public interface ITagServices
+    public interface ITagService
     {
         void CreateTag(TagDTO tagDTO);
     }
