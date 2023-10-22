@@ -19,6 +19,5 @@ namespace Accommodation.Domain.Models
         {
              Name = name;
         }
-
     }
 }

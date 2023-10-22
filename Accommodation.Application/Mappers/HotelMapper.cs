@@ -7,18 +7,20 @@ namespace Accommodation.Application.Mappers
 {
     public static class HotelMapper
     {
-
         public static List<HotelDTO> MapToDTOs(List<Hotel> hotels)
         {
             return hotels.Select(h => MapToDTO(h)).ToList();
         }
 
         public static HotelDTO MapToDTO(Hotel hotel)
-
         {
+            var amenities = AmenityMapper.MapToDTOs(hotel.Amenities);
+            var rooms = RoomMapper.MapToDTOs(hotel.Rooms);
+            var tags = TagMapper.MapToDTOs(hotel.Tags);
+
             return new HotelDTO()
             {
-                Amenities = AmenityMapper.MapToDTOs(hotel.Amenities),
+                Amenities = amenities,
                 Description = hotel.Description,
                 District = hotel.District,
                 HotelGroupId = hotel.HotelGroupId,
@@ -26,9 +28,9 @@ namespace Accommodation.Application.Mappers
                 LatinName = hotel.LatinName,
                 Location = hotel.LatinName,
                 NativeName = hotel.NativeName,
-                Rooms = RoomMapper.MapToDTOs(hotel.Rooms),
+                Rooms = rooms,
                 Rules = hotel.Rules,
-                Tags = TagMapper.MapToDTOs(hotel.Tags)
+                Tags = tags
             };
         }
     }

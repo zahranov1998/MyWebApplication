@@ -17,12 +17,16 @@ namespace Accommodation.EF.Repositories
 
         public void Create(Tag aggregate)
         {
-            throw new System.NotImplementedException();
+            _context.Tags.Add(aggregate);
+
+            _context.SaveChanges();
         }
 
         public void Delete(Tag aggregate)
         {
-            throw new System.NotImplementedException();
+            _context.Tags.Remove(aggregate);
+
+            _context.SaveChanges();
         }
 
         public List<Tag> GetAll()

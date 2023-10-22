@@ -17,12 +17,16 @@ namespace Accommodation.EF.Repositories
 
         public void Create(HotelGroup aggregate)
         {
-            throw new System.NotImplementedException();
+            _context.HotelGroups.Add(aggregate);
+
+            _context.SaveChanges();
         }
 
         public void Delete(HotelGroup aggregate)
         {
-            throw new System.NotImplementedException();
+            _context.HotelGroups.Remove(aggregate);
+
+            _context.SaveChanges();
         }
 
         public List<HotelGroup> GetAll()

@@ -1,4 +1,5 @@
 ﻿using Accommodation.Application.Contract.HotelGroups.DTO;
+using Accommodation.Application.Contract.HotelGroups.Services;
 using Accommodation.Application.Mappers;
 using Accommodation.Domain.Models;
 using Accommodation.Domain.Repositories;
@@ -7,7 +8,7 @@ using Accommodation.EF.Repositories;
 
 namespace Accommodation.Application.Services
 {
-    public class HotelGroupServices
+    public class HotelGroupServices : IHotelGroupService
     {
         public readonly IHotelGroupRepository HotelGroupRepository;
 

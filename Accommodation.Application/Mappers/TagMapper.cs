@@ -9,9 +9,11 @@ namespace Accommodation.Application.Mappers
     {
         public static TagDTO MapToDTO(Tag tag)
         {
+            var hotels = HotelMapper.MapToDTOs(tag.Hotels);
+
             return new TagDTO()
             {
-                hotels = HotelMapper.MapToDTOs(tag.Hotels),
+                Hotels = hotels,
                 Title = tag.Title
             };
         }

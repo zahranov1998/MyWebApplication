@@ -17,12 +17,16 @@ namespace Accommodation.EF.Repositories
 
         public void Create(Room aggregate)
         {
-            throw new System.NotImplementedException();
+            _context.Rooms.Add(aggregate);
+
+            _context.SaveChanges();
         }
 
         public void Delete(Room aggregate)
         {
-            throw new System.NotImplementedException();
+            _context.Rooms.Remove(aggregate);
+
+            _context.SaveChanges();
         }
 
         public List<Room> GetAll()

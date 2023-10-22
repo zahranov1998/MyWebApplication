@@ -7,6 +7,6 @@ namespace Accommodation.Application.Contract.Tags.DTO
     {
         public string Title { get; set; }
 
-        public List<HotelDTO> hotels { get; set; }
+        public List<HotelDTO> Hotels { get; set; }
     }
 }

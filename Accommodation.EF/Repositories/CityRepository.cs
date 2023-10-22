@@ -17,12 +17,16 @@ namespace Accommodation.EF.Repositories
 
         public void Create(City aggregate)
         {
-            throw new System.NotImplementedException();
+            _context.Cities.Add(aggregate);
+
+            _context.SaveChanges();
         }
 
         public void Delete(City aggregate)
         {
-            throw new System.NotImplementedException();
+            _context.Cities.Remove(aggregate);
+
+            _context.SaveChanges();
         }
 
         public List<City> GetAll()

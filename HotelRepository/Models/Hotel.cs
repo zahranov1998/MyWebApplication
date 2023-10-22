@@ -35,7 +35,7 @@ namespace Accommodation.Domain.Models
                 
         }
 
-        public Hotel(string latinName, string nativeName, string district, List<Amenity> amenities, string location, string description, List<Room> rooms, string rules, List<Tag> tags, int hotelGroupId, bool isDeleted)
+        public Hotel(string latinName, string nativeName, string district, List<Amenity> amenities, string location, string description, List<Room> rooms, string rules, List<Tag> tags, int hotelGroupId)
         {
             LatinName = latinName;
             NativeName = nativeName;
@@ -47,7 +47,12 @@ namespace Accommodation.Domain.Models
             Rules = rules;
             Tags = tags;
             HotelGroupId = hotelGroupId;
-            IsDeleted = isDeleted;
+            IsDeleted = false;
+        }
+
+        public void Delete()
+        {
+            IsDeleted = true;
         }
     }
 }

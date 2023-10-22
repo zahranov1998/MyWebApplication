@@ -21,10 +21,13 @@ namespace Accommodation.Application.Services
 
         public void CreateHotel(HotelDTO hotelDTO)
         {
-            var hotel = new Hotel(hotelDTO.LatinName, hotelDTO.NativeName, hotelDTO.District, AmenityMapper.MapDTOsToModelList(hotelDTO.Amenities), hotelDTO.Location,
-            hotelDTO.Description, RoomMapper.MapToModelList(hotelDTO.Rooms), hotelDTO.Rules, TagMapper.MapToModelList(hotelDTO.Tags), hotelDTO.HotelGroupId, hotelDTO.IsDeleted);
+            var amenities = AmenityMapper.MapDTOsToModelList(hotelDTO.Amenities);
+            var tags = TagMapper.MapToModelList(hotelDTO.Tags);
+            var rooms = RoomMapper.MapToModelList(hotelDTO.Rooms);
 
-            HotelRepository.AddHotel(hotel);
+            var hotel = new Hotel(hotelDTO.LatinName, hotelDTO.NativeName, hotelDTO.District, amenities, hotelDTO.Location,hotelDTO.Description, rooms, hotelDTO.Rules, tags, hotelDTO.HotelGroupId);
+
+            HotelRepository.Create(hotel);
         }
 
         public HotelDTO GetHotelById(int id)
