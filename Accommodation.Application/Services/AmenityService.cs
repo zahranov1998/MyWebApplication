@@ -1,13 +1,13 @@
-﻿using Accommodation.Application.Contract.Amenities.DTO;
+﻿using System.Collections.Generic;
+using Accommodation.Application.Contract.Amenities.DTO;
 using Accommodation.Application.Contract.Amenities.Services;
 using Accommodation.Application.Mappers;
 using Accommodation.Domain.Models;
 using Accommodation.Domain.Repositories;
 using Accommodation.EF.Migration;
 using Accommodation.EF.Repositories;
-using System.Collections.Generic;
 
-namespace Accommodation.Application
+namespace Accommodation.Application.Services
 {
     public class AmenityService : IAmenityService
     {

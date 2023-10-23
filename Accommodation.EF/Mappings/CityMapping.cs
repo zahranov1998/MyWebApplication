@@ -1,8 +1,8 @@
-﻿using Accommodation.Domain.Models;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
+using Accommodation.Domain.Models;
 
-namespace Accommodation.EF
+namespace Accommodation.EF.Mappings
 {
     public class CityMapping : EntityTypeConfiguration<City>
     {
