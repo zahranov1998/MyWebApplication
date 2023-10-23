@@ -1,9 +1,8 @@
-﻿using System.Collections.Generic;
-using System.Web.Http;
-using Accommodation.Application;
-using Accommodation.Application.Contract.Amenities.DTO;
+﻿using Accommodation.Application.Contract.Amenities.DTO;
 using Accommodation.Application.Contract.Amenities.Services;
 using Accommodation.Application.Services;
+using System.Collections.Generic;
+using System.Web.Http;
 
 namespace Accommodation.InterfaceApi.ApiControllers
 {
@@ -19,7 +18,7 @@ namespace Accommodation.InterfaceApi.ApiControllers
         [HttpGet]
         public List<AmenityDTO> Get()
         {
-            return amenityService.GetAmenities();
+            return amenityService.GetALLAmenities();
         }
 
         [HttpPost]

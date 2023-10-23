@@ -5,6 +5,7 @@ using Accommodation.Domain.Models;
 using Accommodation.Domain.Repositories;
 using Accommodation.EF.Migration;
 using Accommodation.EF.Repositories;
+using System.Collections.Generic;
 
 namespace Accommodation.Application.Services
 {
@@ -24,6 +25,13 @@ namespace Accommodation.Application.Services
             var city = new City(cityDTO.Name, cityDTO.CountryId);
 
             CityRepository.Create(city);
+        }
+
+        public List<CityDTO> GetALLCities()
+        {
+            var cities = CityRepository.GetAll();
+
+            return CityMapper.MapToDTOs(cities);
         }
 
         public CityDTO GetCityById(int id)

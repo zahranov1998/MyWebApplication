@@ -4,6 +4,7 @@ using Accommodation.Application.Mappers;
 using Accommodation.Domain.Repositories;
 using Accommodation.EF.Migration;
 using Accommodation.EF.Repositories;
+using System.Collections.Generic;
 
 namespace Accommodation.Application.Services
 {
@@ -17,6 +18,14 @@ namespace Accommodation.Application.Services
 
             RoomRepository = new RoomRepository(context);
         }
+
+        //todo
+        //public List<RoomDTO> GetAllRooms()
+        //{
+        //    var rooms = RoomRepository.GetAll();
+
+        //    return RoomMapper.MapToDTOs(rooms);
+        //}
 
         public RoomDTO GetRoomById(int roomId)
         {

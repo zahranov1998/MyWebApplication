@@ -26,7 +26,7 @@ namespace Accommodation.Application.Services
             AmenityRepository.Create(amenity);
         }
 
-        public List<AmenityDTO> GetAmenities()
+        public List<AmenityDTO> GetALLAmenities()
         {
             var amenities = AmenityRepository.GetAll();
 

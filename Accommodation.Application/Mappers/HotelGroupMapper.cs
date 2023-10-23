@@ -1,5 +1,7 @@
 ﻿using Accommodation.Application.Contract.HotelGroups.DTO;
 using Accommodation.Domain.Models;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Accommodation.Application.Mappers
 {
@@ -16,6 +18,11 @@ namespace Accommodation.Application.Mappers
                 LatinTitle = hotelGroup.LatinTitle,
                 NativeTitle = hotelGroup.NativeTitle
             };
+        }
+
+        public static List<HotelGroupDTO> MapToDTOs(List<HotelGroup> hotelGroups) 
+        {
+            return hotelGroups.Select(h=> MapToDTO(h)).ToList();
         }
     }
 }

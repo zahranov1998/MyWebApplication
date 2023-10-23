@@ -1,4 +1,5 @@
 ﻿using Accommodation.Application.Contract.Cities.DTO;
+using System.Collections.Generic;
 
 namespace Accommodation.Application.Contract.Cities.Services
 {
@@ -7,5 +8,7 @@ namespace Accommodation.Application.Contract.Cities.Services
         void CreateCity(CityDTO cityDTO);
 
         CityDTO GetCityById(int cityId);
+
+        List<CityDTO> GetALLCities();
     }
 }

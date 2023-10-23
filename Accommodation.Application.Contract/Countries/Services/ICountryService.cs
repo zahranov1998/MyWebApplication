@@ -1,4 +1,5 @@
 ﻿using Accommodation.Application.Contract.Countries.DTO;
+using System.Collections.Generic;
 
 namespace Accommodation.Application.Contract.Countries.Services
 {
@@ -7,5 +8,7 @@ namespace Accommodation.Application.Contract.Countries.Services
         void CreateCountry(CountryDTO countryDTO);
 
         CountryDTO GetCountryById(int countryId);
+
+        List<CountryDTO> GetALLCountries();
     }
 }

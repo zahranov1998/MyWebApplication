@@ -9,6 +9,6 @@ namespace Accommodation.Application.Contract.Amenities.Services
 
         AmenityDTO GetAmenityById(int id);
 
-        List<AmenityDTO> GetAmenities();
+        List<AmenityDTO> GetALLAmenities();
     }
 }

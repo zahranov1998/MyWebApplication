@@ -5,6 +5,7 @@ using Accommodation.Domain.Models;
 using Accommodation.Domain.Repositories;
 using Accommodation.EF.Migration;
 using Accommodation.EF.Repositories;
+using System.Collections.Generic;
 
 namespace Accommodation.Application.Services
 {
@@ -24,6 +25,13 @@ namespace Accommodation.Application.Services
             var hotelGroup = new HotelGroup(hotelGroupDTO.LatinTitle, hotelGroupDTO.NativeTitle, hotelGroupDTO.CityId);
 
             HotelGroupRepository.Create(hotelGroup);
+        }
+
+        public List<HotelGroupDTO> GetALLHotelGroups()
+        {
+            var hotelGroups = HotelGroupRepository.GetAll();
+
+            return HotelGroupMapper.MapToDTOs(hotelGroups);
         }
 
         public HotelGroupDTO GetHotelGroupById(int id)
