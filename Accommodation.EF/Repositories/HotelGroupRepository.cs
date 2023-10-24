@@ -31,7 +31,7 @@ namespace Accommodation.EF.Repositories
 
         public List<HotelGroup> GetAll()
         {
-            return _context.HotelGroups.ToList();
+            return _context.HotelGroups.Include().ToList();
         }
 
         public HotelGroup GetById(int id)

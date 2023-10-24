@@ -1,4 +1,5 @@
-﻿using System.Web.Http;
+﻿using System.Collections.Generic;
+using System.Web.Http;
 using Accommodation.Application.Contract.HotelGroups.DTO;
 using Accommodation.Application.Contract.HotelGroups.Services;
 using Accommodation.Application.Services;
@@ -24,6 +25,12 @@ namespace Accommodation.InterfaceApi.ApiControllers
         public void Post(HotelGroupDTO hotelGroupDTO)
         {
             hotelGroupService.CreateHotelGroup(hotelGroupDTO);
+        }
+
+        [HttpGet]
+        public List<HotelGroupDTO> GetALL()
+        {
+            return hotelGroupService.GetALLHotelGroups();
         }
     }
 }

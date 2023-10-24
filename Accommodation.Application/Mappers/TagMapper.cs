@@ -9,11 +9,8 @@ namespace Accommodation.Application.Mappers
     {
         public static TagDTO MapToDTO(Tag tag)
         {
-            var hotels = HotelMapper.MapToDTOs(tag.Hotels);
-
             return new TagDTO()
             {
-                Hotels = hotels,
                 Title = tag.Title
             };
         }
@@ -28,9 +25,9 @@ namespace Accommodation.Application.Mappers
             return new Tag(tagDTO.Title);
         }
 
-        public static List<Tag> MapToModelList(List<TagDTO> tagDTOs) 
+        public static List<Tag> MapToModelList(List<TagDTO> tagDTOs)
         {
-            return tagDTOs.Select(t=> MapToModel(t)).ToList();
+            return tagDTOs.Select(t => MapToModel(t)).ToList();
         }
     }
 }

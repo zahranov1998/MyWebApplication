@@ -1,4 +1,5 @@
-﻿using System.Web.Http;
+﻿using System.Collections.Generic;
+using System.Web.Http;
 using Accommodation.Application.Contract.Countries.DTO;
 using Accommodation.Application.Contract.Countries.Services;
 using Accommodation.Application.Services;
@@ -24,6 +25,12 @@ namespace Accommodation.InterfaceApi.ApiControllers
         public void Post(CountryDTO country)
         {
             countryService.CreateCountry(country);
+        }
+
+        [HttpGet]
+        public List<CountryDTO> GetAll()
+        {
+            return countryService.GetALLCountries();
         }
     }
 }

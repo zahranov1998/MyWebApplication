@@ -13,7 +13,7 @@ namespace Accommodation.Application.Mappers
         }
 
         public static HotelDTO MapToDTO(Hotel hotel)
-        {
+        {                
             var amenities = AmenityMapper.MapToDTOs(hotel.Amenities);
             var rooms = RoomMapper.MapToDTOs(hotel.Rooms);
             var tags = TagMapper.MapToDTOs(hotel.Tags);
@@ -32,6 +32,7 @@ namespace Accommodation.Application.Mappers
                 Rules = hotel.Rules,
                 Tags = tags
             };
+           
         }
     }
 }

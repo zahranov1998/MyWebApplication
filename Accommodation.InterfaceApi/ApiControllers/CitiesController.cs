@@ -1,4 +1,5 @@
-﻿using System.Web.Http;
+﻿using System.Collections.Generic;
+using System.Web.Http;
 using Accommodation.Application.Contract.Cities.DTO;
 using Accommodation.Application.Contract.Cities.Services;
 using Accommodation.Application.Services;
@@ -24,6 +25,12 @@ namespace Accommodation.InterfaceApi.ApiControllers
         public void Post(CityDTO city)
         {
             cityService.CreateCity(city);
+        }
+
+        [HttpGet]
+        public List<CityDTO> GetAll()
+        {
+            return cityService.GetALLCities();
         }
     }
 }

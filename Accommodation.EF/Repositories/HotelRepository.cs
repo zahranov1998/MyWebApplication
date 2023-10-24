@@ -2,6 +2,7 @@
 using Accommodation.Domain.Models;
 using Accommodation.Domain.Repositories;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 
 namespace Accommodation.EF.Repositories
@@ -17,12 +18,12 @@ namespace Accommodation.EF.Repositories
 
         public List<Hotel> GetAll()
         {
-            return _context.Hotels.ToList();
+            return _context.Hotels.Include(h => h.Amenities).Include(h=>h.Rooms).Include(h=>h.Tags).ToList();
         }
 
         public Hotel GetById(int id)
         {
-            return _context.Hotels.FirstOrDefault(h => h.Id == id);
+            return _context.Hotels.Include(h=>h.Amenities).Include(h=>h.Rooms).Include(h=>h.Tags).FirstOrDefault(h => h.Id == id);
         }
 
         public void Create(Hotel aggregate)
