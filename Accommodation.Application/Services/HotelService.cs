@@ -12,12 +12,14 @@ namespace Accommodation.Application.Services
     public class HotelService : IHotelService
     {
         public readonly IHotelRepository HotelRepository;
+        public readonly IAmenityRepository       amenityRepository;
 
         public HotelService()
         {
             var context = new AccommodationDbContext();
 
             HotelRepository = new HotelRepository(context);
+            amenityRepository = new AmenityRepository(context);
         }
 
         public void CreateHotel(HotelDTO hotelDTO)
@@ -43,6 +45,21 @@ namespace Accommodation.Application.Services
             var hotel = HotelRepository.GetById(id);
 
             return HotelMapper.MapToDTO(hotel);
+        }
+
+        public void UpdateHotel(UpdateHotelDTO hotel)
+        {
+            var selectedHotel = HotelRepository.GetById(hotel.Id);
+
+            //var amenities = AmenityMapper.MapDTOsToModelList(hotel.Amenities);
+          //  var a = UpdateAmenityMapper.MapDTOToModel(hotel.Amenities);
+            var amenities= amenityRepository.GetByRange(hotel.Amenities);
+
+            //var tags = TagMapper.dto
+
+            //selectedHotel.Update(hotel.LatinName, hotel.NativeName, hotel.District, amenities, hotel.Location, hotel.Description, hotel.Rooms, hotel.Rules, hotel.Tags, hotel.HotelGroupId, hotel.IsDeleted);
+
+            HotelRepository.Update();
         }
     }
 }

@@ -33,5 +33,14 @@ namespace Accommodation.Application.Services
 
             return TagMapper.MapToDTOs(tags);
         }
+
+        public void UpdateTag(UpdateTagDTO tag)
+        {
+            var selectedTag = TagRepository.GetById(tag.Id);
+
+            selectedTag.Update(tag.Title);
+
+            TagRepository.Update();
+        }
     }
 }

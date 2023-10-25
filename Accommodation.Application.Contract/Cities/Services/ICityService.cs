@@ -10,5 +10,7 @@ namespace Accommodation.Application.Contract.Cities.Services
         CityDTO GetCityById(int cityId);
 
         List<CityDTO> GetALLCities();
+
+        void UpdateCity(UpdateCityDTO city);
     }
 }

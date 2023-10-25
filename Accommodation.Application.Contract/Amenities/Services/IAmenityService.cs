@@ -7,6 +7,8 @@ namespace Accommodation.Application.Contract.Amenities.Services
     {
         void CreateAmenity(AmenityDTO amenity);
 
+        void UpdateAmenity(UpdateAmenityDTO amenity);
+
         AmenityDTO GetAmenityById(int id);
 
         List<AmenityDTO> GetALLAmenities();

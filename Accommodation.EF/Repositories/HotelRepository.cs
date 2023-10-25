@@ -39,5 +39,10 @@ namespace Accommodation.EF.Repositories
 
             _context.SaveChanges();
         }
+
+        public void Update()
+        {
+            _context.SaveChanges();
+        }
     }
 }

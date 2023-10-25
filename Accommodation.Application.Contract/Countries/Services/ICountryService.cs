@@ -10,5 +10,7 @@ namespace Accommodation.Application.Contract.Countries.Services
         CountryDTO GetCountryById(int countryId);
 
         List<CountryDTO> GetALLCountries();
+
+        void UpdateCountry(UpdateCountryDTO country);
     }
 }

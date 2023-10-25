@@ -39,5 +39,14 @@ namespace Accommodation.Application.Services
 
             return AmenityMapper.MapToDTO(amenity);
         }
+
+        public void UpdateAmenity(UpdateAmenityDTO amenity)
+        {
+            var selectedAmenity = AmenityRepository.GetById(amenity.Id);
+
+            selectedAmenity.Update(amenity.Title);
+
+            AmenityRepository.Update();
+        }
     }
 }

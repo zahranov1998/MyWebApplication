@@ -6,7 +6,5 @@ namespace Accommodation.Application.Contract.Rooms.Services
     public interface IRoomService
     {
         RoomDTO GetRoomById(int roomId);
-
-        //List<RoomDTO> GetAllRooms();
     }
 }

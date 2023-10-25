@@ -19,14 +19,6 @@ namespace Accommodation.Application.Services
             RoomRepository = new RoomRepository(context);
         }
 
-        //todo
-        //public List<RoomDTO> GetAllRooms()
-        //{
-        //    var rooms = RoomRepository.GetAll();
-
-        //    return RoomMapper.MapToDTOs(rooms);
-        //}
-
         public RoomDTO GetRoomById(int roomId)
         {
             var room = RoomRepository.GetById(roomId);

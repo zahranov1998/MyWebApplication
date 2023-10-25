@@ -40,5 +40,14 @@ namespace Accommodation.Application.Services
 
             return CountryMapper.MapToDTO(country);
         }
+
+        public void UpdateCountry(UpdateCountryDTO country)
+        {
+            var selectedCountry = CountryRepository.GetById(country.Id);
+
+            selectedCountry.Update(country.Name);
+
+            CountryRepository.Update();
+        }
     }
 }

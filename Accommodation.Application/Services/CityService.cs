@@ -40,5 +40,14 @@ namespace Accommodation.Application.Services
 
             return CityMapper.MapToDTO(city);
         }
+
+        public void UpdateCity(UpdateCityDTO city)
+        {
+            var SelectedCity = CityRepository.GetById(city.Id);
+
+            SelectedCity.Update(city.Name, city.CountryId);
+
+            CityRepository.Update();
+        }
     }
 }

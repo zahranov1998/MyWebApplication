@@ -50,9 +50,25 @@ namespace Accommodation.Domain.Models
             IsDeleted = false;
         }
 
+
         public void Delete()
         {
             IsDeleted = true;
+        }
+
+        public void Update(string latinName, string nativeName, string district, List<Amenity> amenities, string location, string description, List<Room> rooms, string rules, List<Tag> tags, int hotelGroupId , bool isDeleted)
+        {
+            LatinName = latinName;
+            NativeName = nativeName;
+            District = district;
+            Amenities = amenities;
+            Location = location;
+            Description = description;
+            Rooms = rooms;
+            Rules = rules;
+            Tags = tags;
+            HotelGroupId = hotelGroupId;
+            IsDeleted = isDeleted;
         }
     }
 }

@@ -26,5 +26,11 @@ namespace Accommodation.InterfaceApi.ApiControllers
         {
             amenityService.CreateAmenity(amenityDTO);
         }
+
+        [HttpPut]
+        public void Put(UpdateAmenityDTO amenityDTO)
+        {
+            amenityService.UpdateAmenity(amenityDTO);
+        }
     }
 }

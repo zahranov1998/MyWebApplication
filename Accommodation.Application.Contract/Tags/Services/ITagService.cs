@@ -8,5 +8,7 @@ namespace Accommodation.Application.Contract.Tags.Services
         void CreateTag(TagDTO tagDTO);
 
         List<TagDTO> GetALLTags();
+
+        void UpdateTag(UpdateTagDTO tag);
     }
 }

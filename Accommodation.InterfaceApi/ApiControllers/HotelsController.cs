@@ -32,5 +32,11 @@ namespace Accommodation.InterfaceApi.ApiControllers
         {
             return hotelService.GetAllHotels();
         }
+
+        [HttpPut]
+        public void Put(UpdateHotelDTO Hotel) 
+        {
+            hotelService.UpdateHotel(Hotel);
+        }
     }
 }

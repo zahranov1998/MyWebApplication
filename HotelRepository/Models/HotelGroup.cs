@@ -27,5 +27,12 @@ namespace Accommodation.Domain.Models
             NativeTitle = nativeTitle;
             CityId = cityId;
         }
+
+        public void Update(string latinTitle, string nativeTitle, int cityId)
+        {
+            LatinTitle = latinTitle;
+            NativeTitle = nativeTitle;
+            CityId = cityId;
+        }
     }
 }

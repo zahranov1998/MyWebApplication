@@ -32,5 +32,11 @@ namespace Accommodation.InterfaceApi.ApiControllers
         {
             return countryService.GetALLCountries();
         }
+
+        [HttpPut]
+        public void Put(UpdateCountryDTO country)
+        {
+            countryService.UpdateCountry(country);
+        }
     }
 }

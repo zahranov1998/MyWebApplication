@@ -38,5 +38,10 @@ namespace Accommodation.EF.Repositories
         {
             return _context.Rooms.FirstOrDefault(r => r.Id == id);
         }
+
+        public void Update()
+        {
+            _context.SaveChanges();
+        }
     }
 }

@@ -1,7 +1,6 @@
 ﻿using Accommodation.Domain.Models;
-using System.Data.Entity;
-using System.Runtime.Serialization;
 using Accommodation.EF.Mappings;
+using System.Data.Entity;
 
 namespace Accommodation.EF.Migration
 {

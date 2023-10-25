@@ -10,6 +10,8 @@ namespace Accommodation.Domain.Repositories
 
         void Create(T aggregate);
 
+        void Update();
+
         void Delete(T aggregate);
     }
 }

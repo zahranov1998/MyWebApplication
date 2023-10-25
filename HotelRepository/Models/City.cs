@@ -21,5 +21,12 @@
 
             CountryId = countryId;
         }
+
+        public void Update(string name, int countryId)
+        {
+            Name = name;
+
+            CountryId = countryId;      
+        }
     }
 }

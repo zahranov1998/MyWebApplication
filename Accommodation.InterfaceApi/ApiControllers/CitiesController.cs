@@ -32,5 +32,11 @@ namespace Accommodation.InterfaceApi.ApiControllers
         {
             return cityService.GetALLCities();
         }
+
+        [HttpPut]
+        public void Put(UpdateCityDTO city)
+        {
+            cityService.UpdateCity(city);
+        }
     }
 }

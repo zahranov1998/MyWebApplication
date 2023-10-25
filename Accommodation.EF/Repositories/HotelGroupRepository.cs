@@ -3,6 +3,7 @@ using Accommodation.Domain.Models;
 using Accommodation.Domain.Repositories;
 using System.Collections.Generic;
 using System.Linq;
+using System.Data.Entity;
 
 namespace Accommodation.EF.Repositories
 {
@@ -31,12 +32,17 @@ namespace Accommodation.EF.Repositories
 
         public List<HotelGroup> GetAll()
         {
-            return _context.HotelGroups.Include().ToList();
+            return _context.HotelGroups.Include(h=>h.Hotels).ToList();
         }
 
         public HotelGroup GetById(int id)
         {
             return _context.HotelGroups.FirstOrDefault(h => h.Id == id);
+        }
+
+        public void Update()
+        {
+            _context.SaveChanges();
         }
     }
 }

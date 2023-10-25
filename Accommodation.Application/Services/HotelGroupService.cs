@@ -40,5 +40,14 @@ namespace Accommodation.Application.Services
 
             return HotelGroupMapper.MapToDTO(hotelGroup);
         }
+
+        public void UpdateHotelGroup(UpdateHotelGroupDTO hotelGroup)
+        {
+            var selectedHotelGroup = HotelGroupRepository.GetById(hotelGroup.Id);
+
+            selectedHotelGroup.Update(hotelGroup.LatinTitle , hotelGroup.NativeTitle , hotelGroup.CityId);
+
+            HotelGroupRepository.Update();
+        }
     }
 }

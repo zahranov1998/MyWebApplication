@@ -23,5 +23,12 @@
             CountOfBeds = countOfBeds;
             HotelId = hotelId;
         }
+
+        public void Update(int capacity, int countOfBeds, int hotelId)
+        {
+            Capacity = capacity;
+            CountOfBeds = countOfBeds;
+            HotelId = hotelId;
+        }
     }
 }

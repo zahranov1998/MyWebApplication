@@ -26,5 +26,11 @@ namespace Accommodation.InterfaceApi.ApiControllers
         {
             return tagService.GetALLTags();
         }
+
+        [HttpPut]
+        public void Put(UpdateTagDTO tag)
+        {
+            tagService.UpdateTag(tag);
+        }
     }
 }

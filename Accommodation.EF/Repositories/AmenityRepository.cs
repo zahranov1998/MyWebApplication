@@ -2,6 +2,7 @@
 using Accommodation.Domain.Repositories;
 using Accommodation.EF.Migration;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations;
 using System.Linq;
 
 namespace Accommodation.EF.Repositories
@@ -37,6 +38,16 @@ namespace Accommodation.EF.Repositories
         public Amenity GetById(int id)
         {
             return _context.Amenities.FirstOrDefault(a => a.Id == id);
+        }
+
+        public List<Amenity> GetByRange(List<int> amenityIds)
+        {
+            return _context.Amenities.Where(c => amenityIds.Contains(c.Id)).ToList();
+        }
+
+        public void Update()
+        {
+            _context.SaveChanges();
         }
     }
 }

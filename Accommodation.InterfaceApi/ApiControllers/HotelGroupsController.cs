@@ -32,5 +32,10 @@ namespace Accommodation.InterfaceApi.ApiControllers
         {
             return hotelGroupService.GetALLHotelGroups();
         }
+
+        public void Put(UpdateHotelGroupDTO hotelGroup)
+        {
+            hotelGroupService.UpdateHotelGroup(hotelGroup);
+        }
     }
 }

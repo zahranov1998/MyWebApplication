@@ -19,5 +19,10 @@ namespace Accommodation.Domain.Models
         {
             Title = title;
         }
+
+        public void Update(string title)
+        {
+            Title = title;
+        }
     }
 }
