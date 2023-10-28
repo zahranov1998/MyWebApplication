@@ -4,7 +4,6 @@ using Accommodation.Application.Mappers;
 using Accommodation.Domain.Repositories;
 using Accommodation.EF.Migration;
 using Accommodation.EF.Repositories;
-using System.Collections.Generic;
 
 namespace Accommodation.Application.Services
 {

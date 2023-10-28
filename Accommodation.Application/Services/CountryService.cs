@@ -27,6 +27,13 @@ namespace Accommodation.Application.Services
             CountryRepository.Create(country);
         }
 
+        public void DeleteCountry(int countryId)
+        {
+            var country = CountryRepository.GetById(countryId);
+
+            CountryRepository.Delete(country);
+        }
+
         public List<CountryDTO> GetALLCountries()
         {
             var countries = CountryRepository.GetAll();

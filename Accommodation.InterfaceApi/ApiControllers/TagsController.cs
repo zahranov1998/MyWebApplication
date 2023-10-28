@@ -32,5 +32,11 @@ namespace Accommodation.InterfaceApi.ApiControllers
         {
             tagService.UpdateTag(tag);
         }
+
+        [HttpDelete]
+        public void Delete(int id)
+        {
+            tagService.DeleteTag(id);
+        }
     }
 }

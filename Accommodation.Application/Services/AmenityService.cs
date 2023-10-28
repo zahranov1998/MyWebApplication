@@ -26,6 +26,13 @@ namespace Accommodation.Application.Services
             AmenityRepository.Create(amenity);
         }
 
+        public void DeleteAmenity(int id)
+        {
+            var amenity = AmenityRepository.GetById(id);
+
+            AmenityRepository.Delete(amenity);
+        }
+
         public List<AmenityDTO> GetALLAmenities()
         {
             var amenities = AmenityRepository.GetAll();

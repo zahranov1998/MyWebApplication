@@ -38,5 +38,11 @@ namespace Accommodation.InterfaceApi.ApiControllers
         {
             hotelService.UpdateHotel(Hotel);
         }
+
+        [HttpDelete]
+        public void Delete(int id)
+        {
+            hotelService.DeleteHotel(id);
+        }
     }
 }

@@ -10,5 +10,7 @@ namespace Accommodation.Application.Contract.Tags.Services
         List<TagDTO> GetALLTags();
 
         void UpdateTag(UpdateTagDTO tag);
+
+        void DeleteTag(int id);
     }
 }

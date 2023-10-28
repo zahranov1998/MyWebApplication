@@ -11,14 +11,16 @@ namespace Accommodation.Application.Services
 {
     public class HotelService : IHotelService
     {
-        public readonly IHotelRepository HotelRepository;
-        public readonly IAmenityRepository       amenityRepository;
+        public readonly IHotelRepository hotelRepository;
+        public readonly IAmenityRepository amenityRepository;
+        public readonly ITagRepository tagRepository;
+        public readonly IRoomRepository roomRepository;
 
         public HotelService()
         {
             var context = new AccommodationDbContext();
 
-            HotelRepository = new HotelRepository(context);
+            hotelRepository = new HotelRepository(context);
             amenityRepository = new AmenityRepository(context);
         }
 
@@ -28,38 +30,42 @@ namespace Accommodation.Application.Services
             var tags = TagMapper.MapToModelList(hotelDTO.Tags);
             var rooms = RoomMapper.MapToModelList(hotelDTO.Rooms);
 
-            var hotel = new Hotel(hotelDTO.LatinName, hotelDTO.NativeName, hotelDTO.District, amenities, hotelDTO.Location,hotelDTO.Description, rooms, hotelDTO.Rules, tags, hotelDTO.HotelGroupId);
+            var hotel = new Hotel(hotelDTO.LatinName, hotelDTO.NativeName, hotelDTO.District, amenities, hotelDTO.Location, hotelDTO.Description, rooms, hotelDTO.Rules, tags, hotelDTO.HotelGroupId);
 
-            HotelRepository.Create(hotel);
+            hotelRepository.Create(hotel);
+        }
+
+        public void DeleteHotel(int hotelId)
+        {
+            var hotel = hotelRepository.GetById(hotelId);
+
+            hotelRepository.Delete(hotel);
         }
 
         public List<HotelDTO> GetAllHotels()
         {
-            var hotels = HotelRepository.GetAll();
+            var hotels = hotelRepository.GetAll();
 
             return HotelMapper.MapToDTOs(hotels);
         }
 
         public HotelDTO GetHotelById(int id)
         {
-            var hotel = HotelRepository.GetById(id);
+            var hotel = hotelRepository.GetById(id);
 
             return HotelMapper.MapToDTO(hotel);
         }
 
         public void UpdateHotel(UpdateHotelDTO hotel)
         {
-            var selectedHotel = HotelRepository.GetById(hotel.Id);
+            var selectedHotel = hotelRepository.GetById(hotel.Id);
+            var amenities = amenityRepository.GetByRange(hotel.AmenityIds);
+            var tags = tagRepository.GetByRange(hotel.TagIds);
+            var rooms = roomRepository.GetByRange(hotel.RoomIds);
 
-            //var amenities = AmenityMapper.MapDTOsToModelList(hotel.Amenities);
-          //  var a = UpdateAmenityMapper.MapDTOToModel(hotel.Amenities);
-            var amenities= amenityRepository.GetByRange(hotel.Amenities);
+            selectedHotel.Update(hotel.LatinName, hotel.NativeName, hotel.District, amenities, hotel.Location, hotel.Description, rooms, hotel.Rules, tags, hotel.HotelGroupId, hotel.IsDeleted);
 
-            //var tags = TagMapper.dto
-
-            //selectedHotel.Update(hotel.LatinName, hotel.NativeName, hotel.District, amenities, hotel.Location, hotel.Description, hotel.Rooms, hotel.Rules, hotel.Tags, hotel.HotelGroupId, hotel.IsDeleted);
-
-            HotelRepository.Update();
+            hotelRepository.Update();
         }
     }
 }

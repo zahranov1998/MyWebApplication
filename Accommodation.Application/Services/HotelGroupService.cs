@@ -27,6 +27,13 @@ namespace Accommodation.Application.Services
             HotelGroupRepository.Create(hotelGroup);
         }
 
+        public void DeleteHotelGroup(int id)
+        {
+            var hotelGroup = HotelGroupRepository.GetById(id);
+
+            HotelGroupRepository.Delete(hotelGroup);
+        }
+
         public List<HotelGroupDTO> GetALLHotelGroups()
         {
             var hotelGroups = HotelGroupRepository.GetAll();

@@ -12,5 +12,7 @@ namespace Accommodation.Application.Contract.Cities.Services
         List<CityDTO> GetALLCities();
 
         void UpdateCity(UpdateCityDTO city);
+
+        void DeleteCity(int cityId);
     }
 }

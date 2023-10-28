@@ -27,6 +27,13 @@ namespace Accommodation.Application.Services
             TagRepository.Create(tag);
         }
 
+        public void DeleteTag(int id)
+        {
+            var tag = TagRepository.GetById(id);
+
+            TagRepository.Delete(tag);
+        }
+
         public List<TagDTO> GetALLTags()
         {
             var tags = TagRepository.GetAll();

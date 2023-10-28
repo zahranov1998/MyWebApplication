@@ -39,6 +39,11 @@ namespace Accommodation.EF.Repositories
             return _context.Tags.FirstOrDefault(t => t.Id == id);
         }
 
+        public List<Tag> GetByRange(List<int> tagIds)
+        {
+            return _context.Tags.Where(t=> tagIds.Contains(t.Id)).ToList();
+        }
+
         public void Update()
         {
             _context.SaveChanges();

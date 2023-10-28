@@ -15,17 +15,17 @@ namespace Accommodation.Application.Contract.Hotels.DTO
 
         public string District { get; set; }
 
-        public List<int> Amenities { get; set; }
+        public List<int> AmenityIds { get; set; }
 
         public string Location { get; set; }
 
         public string Description { get; set; }
 
-        public List<UpdateRoomDTO> Rooms { get; set; }
+        public List<int> RoomIds { get; set; }
 
         public string Rules { get; set; }
 
-        public List<UpdateTagDTO> Tags { get; set; }
+        public List<int> TagIds { get; set; }
 
         public int HotelGroupId { get; set; }
 

@@ -12,5 +12,7 @@ namespace Accommodation.Application.Contract.Hotels.Services
         List<HotelDTO> GetAllHotels();
 
         void UpdateHotel(UpdateHotelDTO hotel);
+
+        void DeleteHotel(int hotelId);
     }
 }

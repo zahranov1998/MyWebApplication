@@ -32,5 +32,11 @@ namespace Accommodation.InterfaceApi.ApiControllers
         {
             amenityService.UpdateAmenity(amenityDTO);
         }
+
+        [HttpDelete]
+        public void Delete(int id)
+        {
+            amenityService.DeleteAmenity(id);
+        }
     }
 }

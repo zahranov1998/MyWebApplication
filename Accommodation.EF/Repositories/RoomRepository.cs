@@ -39,6 +39,11 @@ namespace Accommodation.EF.Repositories
             return _context.Rooms.FirstOrDefault(r => r.Id == id);
         }
 
+        public List<Room> GetByRange(List<int> roomIds)
+        {
+            return _context.Rooms.Where(r=> roomIds.Contains(r.Id)).ToList();
+        }
+
         public void Update()
         {
             _context.SaveChanges();

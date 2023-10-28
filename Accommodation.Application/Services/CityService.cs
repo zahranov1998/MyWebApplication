@@ -27,6 +27,13 @@ namespace Accommodation.Application.Services
             CityRepository.Create(city);
         }
 
+        public void DeleteCity(int cityId)
+        {
+            var city = CityRepository.GetById(cityId);
+
+            CityRepository.Delete(city);
+        }
+
         public List<CityDTO> GetALLCities()
         {
             var cities = CityRepository.GetAll();

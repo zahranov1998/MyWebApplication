@@ -4,5 +4,6 @@ namespace Accommodation.Domain.Repositories
 {
     public interface ICityRepository : IRepository<City>
     {
+
     }
 }

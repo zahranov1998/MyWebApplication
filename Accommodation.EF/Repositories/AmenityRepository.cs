@@ -2,7 +2,6 @@
 using Accommodation.Domain.Repositories;
 using Accommodation.EF.Migration;
 using System.Collections.Generic;
-using System.Data.Entity.Migrations;
 using System.Linq;
 
 namespace Accommodation.EF.Repositories
