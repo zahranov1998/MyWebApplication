@@ -1,0 +1,32 @@
+﻿@{
+    Layout = "~/Views/_Shared/_LayoutPage.cshtml";
+}
+@model List<Accommodation.Application.Contract.Hotels.DTO.HotelDTO>
+
+
+<div class="m-2 d-flex justify-content-start">
+    @Html.ActionLink("Add Hotel", "Create", null,new {@class= "btn btn-primary col-1" })
+</div>
+<div class="border border-primary mx-2">
+    <div class="row text-secondary text-center">
+        <div class="col-3">Persian Name</div>
+        <div class="col-3">English Name</div>
+        <div class="col-2">City</div>
+        <div class="col-2">Grade</div>
+        <div class="col-2">Operation</div>
+    </div>
+
+    @foreach (var hotel in Model)
+    {
+    <div class="row text-center">
+        <div class="col-3">@hotel.NativeName</div>
+        <div class="col-3">>@hotel.LatinName</div>
+        <div class="col-2">City N/A<</div>
+        <div class="col-2">Grade N/A</div>
+        <div class="col-2">
+            @Html.ActionLink("Edit", "Edit", new { id = 1234 })/<a href="/delete">Delete</a>
+        </div>
+    </div>
+    }
+</div>
+
