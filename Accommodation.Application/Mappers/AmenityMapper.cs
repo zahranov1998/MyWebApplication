@@ -24,7 +24,7 @@ namespace Accommodation.Application.Mappers
 
         public static List<Amenity> MapDTOsToModelList(List<AmenityDTO> amenitieDTOs)
         {
-            return amenitieDTOs.Select(a => MapDTOToModel(a)).ToList();
+            return amenitieDTOs?.Select(a => MapDTOToModel(a)).ToList();
         }
     }
 }

@@ -117,11 +117,13 @@
     <Compile Include="ApiControllers\TagsController.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AmenitiesController.cs" />
     <Compile Include="Controllers\HotelsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\HotelDTO1.cs" />
     <Compile Include="ViewModels\HotelListViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -129,6 +131,9 @@
     <None Include="packages.config" />
     <Content Include="Views\_Shared\_LayoutPage.cshtml" />
     <Content Include="Views\Hotels\Index.cshtml" />
+    <Content Include="Views\Hotels\AddHotel.cshtml" />
+    <Content Include="Views\Hotels\Edit.cshtml" />
+    <Content Include="Views\Amenities\GetAmenities.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

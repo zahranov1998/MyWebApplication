@@ -19,7 +19,7 @@ namespace Accommodation.Application.Mappers
 
         public static List<RoomDTO> MapToDTOs(List<Room> rooms)
         {
-            return rooms.Select(r => MapToDTO(r)).ToList();
+            return rooms?.Select(r => MapToDTO(r)).ToList();
         }
 
         public static Room MapToModel(RoomDTO roomDTO)
@@ -29,7 +29,7 @@ namespace Accommodation.Application.Mappers
 
         public static List<Room> MapToModelList(List<RoomDTO> roomDTOs)
         {
-            return roomDTOs.Select(r => MapToModel(r)).ToList();
+            return roomDTOs?.Select(r => MapToModel(r)).ToList();
         }
     }
 }

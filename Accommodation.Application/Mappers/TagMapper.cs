@@ -17,7 +17,7 @@ namespace Accommodation.Application.Mappers
 
         public static List<TagDTO> MapToDTOs(List<Tag> tags)
         {
-            return tags.Select(t => MapToDTO(t)).ToList();
+            return tags?.Select(t => MapToDTO(t)).ToList();
         }
 
         public static Tag MapToModel(TagDTO tagDTO)
@@ -27,7 +27,7 @@ namespace Accommodation.Application.Mappers
 
         public static List<Tag> MapToModelList(List<TagDTO> tagDTOs)
         {
-            return tagDTOs.Select(t => MapToModel(t)).ToList();
+            return tagDTOs?.Select(t => MapToModel(t)).ToList();
         }
     }
 }

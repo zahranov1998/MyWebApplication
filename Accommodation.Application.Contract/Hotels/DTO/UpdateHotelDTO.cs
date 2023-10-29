@@ -1,7 +1,4 @@
-﻿using Accommodation.Application.Contract.Amenities.DTO;
-using Accommodation.Application.Contract.Rooms.DTO;
-using Accommodation.Application.Contract.Tags.DTO;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace Accommodation.Application.Contract.Hotels.DTO
 {
