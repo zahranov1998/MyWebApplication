@@ -42,6 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Amenities\DTO\AmenityDTO.cs" />
+    <Compile Include="Amenities\DTO\AmenityHomeDTO.cs" />
+    <Compile Include="Amenities\DTO\CreateAmenityDTO.cs" />
     <Compile Include="Amenities\DTO\UpdateAmenityDTO.cs" />
     <Compile Include="Amenities\Services\IAmenityService.cs" />
     <Compile Include="Cities\DTO\CityDTO.cs" />
@@ -63,6 +65,7 @@
     <Compile Include="Tags\DTO\TagDTO.cs" />
     <Compile Include="Tags\DTO\UpdateTagDTO.cs" />
     <Compile Include="Tags\Services\ITagService.cs" />
+    <Compile Include="ViewModels\ModifyHotelViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HotelRepository\Accommodation.Domain.csproj">
@@ -70,5 +73,6 @@
       <Name>Accommodation.Domain</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

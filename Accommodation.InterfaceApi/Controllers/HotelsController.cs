@@ -1,16 +1,19 @@
 ﻿using Accommodation.Application.Contract.Hotels.DTO;
 using Accommodation.Application.Services;
 using System.Web.Mvc;
+using Accommodation.Application.Contract.ViewModels;
 
 namespace Accommodation.InterfaceApi.Controllers
 {
     public class HotelsController : Controller
     {
         private readonly HotelService _hotelService;
+        private readonly AmenityService _amenityService;
 
         public HotelsController()
         {
             this._hotelService = new HotelService();
+            _amenityService = new AmenityService();
         }
 
         public ActionResult Index()
@@ -21,13 +24,19 @@ namespace Accommodation.InterfaceApi.Controllers
         }
 
         public ActionResult AddHotel()
-        
         {
-            return View();
+            var amenities = _amenityService.GetALLAmenities();
+            var modifyHotel = new ModifyHotelViewModel()
+            {
+                Amenities = amenities,
+                Hotel = new HotelDTO()
+            };
+
+            return View(modifyHotel);
         }
 
         [HttpPost]
-        public ActionResult AddHotel(HotelDTO hotelDTO)
+        public ActionResult AddHotel([Bind(Prefix = "Hotel")] HotelDTO hotelDTO)
         {
             _hotelService.CreateHotel(hotelDTO);
 

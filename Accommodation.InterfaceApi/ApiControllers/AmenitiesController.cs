@@ -22,7 +22,7 @@ namespace Accommodation.InterfaceApi.ApiControllers
         }
 
         [HttpPost]
-        public void Post(AmenityDTO amenityDTO)
+        public void Post(CreateAmenityDTO amenityDTO)
         {
             amenityService.CreateAmenity(amenityDTO);
         }

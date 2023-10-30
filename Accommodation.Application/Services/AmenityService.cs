@@ -19,7 +19,7 @@ namespace Accommodation.Application.Services
 
             AmenityRepository = new AmenityRepository(context);
         }
-        public void CreateAmenity(AmenityDTO dto)
+        public void CreateAmenity(CreateAmenityDTO dto)
         {
             var amenity = new Amenity(dto.Title);
 

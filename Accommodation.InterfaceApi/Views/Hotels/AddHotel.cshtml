@@ -1,7 +1,8 @@
 ﻿@{
     Layout = "~/Views/_Shared/_LayoutPage.cshtml";
 }
-@model Accommodation.Application.Contract.Hotels.DTO.HotelDTO
+@*@model Accommodation.Application.Contract.Hotels.DTO.HotelDTO*@
+@model Accommodation.Application.Contract.ViewModels.ModifyHotelViewModel
 <!doctype html>
 <html lang="en">
 <head>
@@ -22,7 +23,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-4">
-                        Hotel Native Nam
+                        Hotel Native Name
                         </div>
                     <div class="col-4">
                         Hotel Latin Name
@@ -33,21 +34,20 @@
                 </div>
             </div>
             <div class="container">
-                <div class="row ">
+                <div class="row">
                     <div class="col-4">
-                        @Html.EditorFor(a => Model.NativeName)
+                        @Html.EditorFor(a => a.Hotel.NativeName)
                     </div>
                     <div class="col-4">
-                        @Html.EditorFor(a => Model.LatinName)
-
+                        @Html.EditorFor(a => a.Hotel.LatinName)
                     </div>
                     <div class="col-4">
-                        @Html.EditorFor(a => Model.District)
-
+                        @Html.EditorFor(a => a.Hotel.District)
+                        
                     </div>
                 </div>
             </div>
-            <br>
+            
             <div class="container">
                 <div class="row ">
                     <div class="col-4">
@@ -74,7 +74,6 @@
                     </div>
                 </div>
             </div>
-            <br>
             <div class="container">
                 <div class="row ">
                     <div class="col-4">
@@ -102,31 +101,22 @@
                 </div>
             </div>
             <br/>
-            <div class="container text-center mt-2">
+            <div class="container text-center">
                 <div class="row col-11">
                     Amenities
                 </div>
-                <div class="row ">
+                <div class="row">
+               
+                    @foreach (var amenity in Model.Amenities)
+                    {
+                        <div class="col-2 text-end">
+                            @amenity.Title
+                            @Html.CheckBox(@amenity.Title)
+                            @*@Html.CheckBoxFor(*@
+                        </div>
 
-                    <div class="col-11">
-                        Pool
-                        <input type="checkbox">
-                        Parking
-                        <input type="checkbox">
-                        Gym
-                        <input type="checkbox">
-                        Restaurant
-                        <input type="checkbox">
-                        Park
-                        <input type="checkbox">
-                        Library
-                        <input type="checkbox">
-                        Cafe
-                        <input type="checkbox">
-                        Sauna
-                        <input type="checkbox">
+                    }
 
-                    </div>
                 </div>
             </div>
             <br>

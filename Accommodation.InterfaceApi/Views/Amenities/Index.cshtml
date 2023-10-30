@@ -1,0 +1,77 @@
+﻿@{
+    ViewBag.Title = "Amenities";
+    Layout = "~/Views/_Shared/_LayoutPage.cshtml";
+}
+@using Accommodation.Application.Contract.Amenities.DTO
+@model Accommodation.Application.Contract.Amenities.DTO.AmenityHomeDTO
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+</head>
+<body>
+
+    <div class="container text-center">
+        @using (Html.BeginForm())
+        {
+            <div class="row ">
+                <div>
+                    @Html.LabelFor(a => Model.NewAmenity.Title)
+                </div>
+            </div>
+            <div class="row my-3">
+                <div>
+                    <input type="text" name="Title" id="title" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 text-center">
+                    <input type="submit"  class="btn btn-success" id="btn-title" value="Add"/>
+                </div>
+            </div> 
+            @*<div class="row">
+                <div class="col-12 text-center">
+                    @Html.ActionLink("Amenity","AddAmenity",new CreateAmenityDTO(){Title = Model.NewAmenity.Title},new { @class="btn btn-success"})
+                </div>
+            </div>*@
+        }
+
+    </div>
+    <br/>
+    <br/>
+
+    <div class="border">
+        <div class="row text-secondary text-center my-2 mx-2">
+            <div class="col-2">Amenity Title</div>
+            <div class="col-10 text-end">Operation</div>
+        </div>
+    </div>
+@foreach (var amenity in Model.Amenities)
+{
+    <div class="border my-2">
+        <div class="row text-center mx-2">
+            <div class="col-2">@amenity.Title</div>
+            <div class="col-10 text-end">
+                <a href="">Edit</a> /
+                <a href="">Delete</a>
+            </div>
+        </div>
+    </div>
+}
+
+
+    @*<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<script>
+    function postAmenity() {
+        debugger;
+        var title = document.getElementById("title").value
+        document.location.href = "http://localhost:59171/Amenities/AddAmenity?Title=" + title
+
+    }
+</script>*@
+</body>
+</html>
+

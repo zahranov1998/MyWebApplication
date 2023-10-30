@@ -5,7 +5,7 @@ namespace Accommodation.Application.Contract.Amenities.Services
 {
     public interface IAmenityService
     {
-        void CreateAmenity(AmenityDTO amenity);
+        void CreateAmenity(CreateAmenityDTO amenity);
 
         void UpdateAmenity(UpdateAmenityDTO amenity);
 
