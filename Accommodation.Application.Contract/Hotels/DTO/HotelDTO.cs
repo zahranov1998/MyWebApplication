@@ -9,6 +9,8 @@ namespace Accommodation.Application.Contract.Hotels.DTO
 {
     public class HotelDTO
     {
+        public int Id { get; set; }
+
         public string LatinName { get; set; }
         
         public string NativeName { get; set; }
@@ -16,6 +18,8 @@ namespace Accommodation.Application.Contract.Hotels.DTO
         public string District { get; set; }
 
         public List<AmenityDTO> Amenities { get; set; }
+
+        public List<AmenityCheckbox> AmenityCheckboxes { get; set; }
 
         public string Location { get; set; }
 

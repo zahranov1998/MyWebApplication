@@ -2,7 +2,10 @@
     Layout = "~/Views/_Shared/_LayoutPage.cshtml";
 }
 @*@model Accommodation.Application.Contract.Hotels.DTO.HotelDTO*@
-@model Accommodation.Application.Contract.ViewModels.ModifyHotelViewModel
+@using System.Activities.Statements
+@using System.Linq
+@using Accommodation.Application.Contract.Amenities.DTO
+@model Accommodation.Application.Contract.ViewModels.AddHotelViewModel
 <!doctype html>
 <html lang="en">
 <head>
@@ -13,89 +16,100 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    @*<header class="container-fluid text-center bg-body-tertiary border-bottom  py-2" style="height: 5vh;">
-    </header>*@
-
-
-    <Main class="container-fluid py-2">
+<Main class="container-fluid py-2">
         @using (Html.BeginForm())
         {
             <div class="container">
                 <div class="row">
-                    <div class="col-4">
+                    <div class="col-3">
                         Hotel Native Name
-                        </div>
-                    <div class="col-4">
+                    </div>
+                    <div class="col-3">
                         Hotel Latin Name
                     </div>
-                    <div class="col-4">
+                    <div class="col-3">
                         District
+                    </div>
+                    <div class="col-3">
+                        HotelGroup
                     </div>
                 </div>
             </div>
             <div class="container">
                 <div class="row">
-                    <div class="col-4">
-                        @Html.EditorFor(a => a.Hotel.NativeName)
+                    <div class="col-3">
+                            @Html.EditorFor(a => a.Hotel.NativeName)
                     </div>
-                    <div class="col-4">
+                    <div class="col-3">
                         @Html.EditorFor(a => a.Hotel.LatinName)
                     </div>
-                    <div class="col-4">
+                    <div class="col-3">
                         @Html.EditorFor(a => a.Hotel.District)
-                        
+                    </div>
+                    <div>
+                        @*@Html.DropDownListFor(a=>a.Hotel.HotelGroupId, Model.HotelGroups,)*@
+                        <select name="HotelGroup">
+                            <option>
+                                Choose
+                            </option>
+                            @foreach (var group in Model.HotelGroups)
+                            {
+                                <option value="1">@group.LatinTitle</option>
+                            }
+                        </select>
+
                     </div>
                 </div>
             </div>
             
             <div class="container">
                 <div class="row ">
-                    <div class="col-4">
+                    <div class="col-3">
                         City Name
                     </div>
-                    <div class="col-4">
+                    <div class="col-3">
                         City Latin Name
                     </div>
-                    <div class="col-4">
+                    <div class="col-3">
                         County Name
                     </div>
                 </div>
             </div>
             <div class="container">
                 <div class="row ">
-                    <div class="col-4">
+                    <div class="col-3">
                         <input type="text">
                     </div>
-                    <div class="col-4">
+                    <div class="col-3">
                         <input type="text">
                     </div>
-                    <div class="col-4">
+                    <div class="col-3">
                         <input type="text">
                     </div>
                 </div>
             </div>
             <div class="container">
                 <div class="row ">
-                    <div class="col-4">
+                    <div class="col-3">
                         Count Of Single Room
                     </div>
-                    <div class="col-4">
+                    <div class="col-3">
                         Count Of Double Room
                     </div>
-                    <div class="col-4">
+                    <div class="col-3">
                         Count Of Triple Room
                     </div>
                 </div>
             </div>
             <div class="container">
                 <div class="row ">
-                    <div class="col-4">
+                    <div class="col-3">
                         <input type="text">
                     </div>
-                    <div class="col-4">
+                    <div class="col-3">
                         <input type="text">
                     </div>
-                    <div class="col-4">
+                    <div class="col-3">
                         <input type="text">
                     </div>
                 </div>
@@ -106,17 +120,15 @@
                     Amenities
                 </div>
                 <div class="row">
-               
-                    @foreach (var amenity in Model.Amenities)
+                    @for (int i = 0; i< Model.AmenityCheckboxes.Count; i++)
                     {
                         <div class="col-2 text-end">
-                            @amenity.Title
-                            @Html.CheckBox(@amenity.Title)
-                            @*@Html.CheckBoxFor(*@
+                            @Html.HiddenFor(a => Model.AmenityCheckboxes[i].Value)
+                            @Html.HiddenFor(a => Model.AmenityCheckboxes[i].Name)
+                            <label>@Model.AmenityCheckboxes[i].Name</label>
+                            @Html.CheckBoxFor(a => Model.AmenityCheckboxes[i].Checked)
                         </div>
-
                     }
-
                 </div>
             </div>
             <br>
@@ -149,7 +161,6 @@
                 <div class="row ">
                     <div class="col-6 text-end">
                         <input type="submit" value="Save" />
-                        @*@Html.ActionLink("Save","AddHotel")*@
                     </div>
                     <div class="col-6">
                         <button>Cancel</button>

@@ -20,6 +20,7 @@ namespace Accommodation.Application.Mappers
 
             return new HotelDTO()
             {
+                Id = hotel.Id,
                 Amenities = amenities,
                 Description = hotel.Description,
                 District = hotel.District,
@@ -32,7 +33,6 @@ namespace Accommodation.Application.Mappers
                 Rules = hotel.Rules,
                 Tags = tags
             };
-           
         }
     }
 }

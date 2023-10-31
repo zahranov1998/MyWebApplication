@@ -19,7 +19,10 @@
     @foreach (var hotel in Model)
     {
     <div class="row text-center">
-        <div class="col-3">@hotel.NativeName</div>
+        <div class="col-3">
+            @*<a href="/details">@hotel.NativeName</a>*@ 
+            @Html.ActionLink(@hotel.NativeName ,"Details" , new {id =@hotel.Id})
+        </div>
         <div class="col-3">@hotel.LatinName</div>
         <div class="col-2">City N/A</div>
         <div class="col-2">Grade N/A</div>
@@ -29,4 +32,3 @@
     </div>
     }
 </div>
-

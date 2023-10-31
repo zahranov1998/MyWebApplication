@@ -1,6 +1,8 @@
-﻿using Accommodation.Application.Contract.Hotels.DTO;
+﻿using System.Collections.Generic;
+using Accommodation.Application.Contract.Hotels.DTO;
 using Accommodation.Application.Services;
 using System.Web.Mvc;
+using Accommodation.Application.Contract.Amenities.DTO;
 using Accommodation.Application.Contract.ViewModels;
 
 namespace Accommodation.InterfaceApi.Controllers
@@ -9,11 +11,13 @@ namespace Accommodation.InterfaceApi.Controllers
     {
         private readonly HotelService _hotelService;
         private readonly AmenityService _amenityService;
+        private readonly HotelGroupService _hotelGroupService;
 
         public HotelsController()
         {
             this._hotelService = new HotelService();
             _amenityService = new AmenityService();
+            _hotelGroupService = new HotelGroupService();
         }
 
         public ActionResult Index()
@@ -26,22 +30,44 @@ namespace Accommodation.InterfaceApi.Controllers
         public ActionResult AddHotel()
         {
             var amenities = _amenityService.GetALLAmenities();
-            var modifyHotel = new ModifyHotelViewModel()
+            var amenityCheckboxes = new List<AmenityCheckbox>();
+            var hotelGroups = _hotelGroupService.GetALLHotelGroups();
+
+
+            foreach (var amenityDto in amenities)
+            {
+                amenityCheckboxes.Add(new AmenityCheckbox(){Name = amenityDto.Title,Value = amenityDto.Title,Checked = false});
+            }
+
+            var modifyHotel = new AddHotelViewModel()
             {
                 Amenities = amenities,
-                Hotel = new HotelDTO()
+                HotelGroups = hotelGroups,
+                Hotel = new HotelDTO(),
+                AmenityCheckboxes = amenityCheckboxes
             };
 
             return View(modifyHotel);
         }
 
         [HttpPost]
-        public ActionResult AddHotel([Bind(Prefix = "Hotel")] HotelDTO hotelDTO)
+        public ActionResult AddHotel(AddHotelViewModel addHotel)
         {
-            _hotelService.CreateHotel(hotelDTO);
+
+            _hotelService.CreateHotel(addHotel.Hotel);
 
             return RedirectToAction("Index");
         }
+
+        [HttpGet]
+        public ActionResult Details(int id)
+        {
+            var hotel =_hotelService.GetHotelById(id);
+
+            return View();
+        }
+
+
         //public ActionResult Edit(int id)
         //{
         //    var service = new HotelService();

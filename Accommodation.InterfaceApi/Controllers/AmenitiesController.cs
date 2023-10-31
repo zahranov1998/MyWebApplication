@@ -25,9 +25,9 @@ namespace Accommodation.InterfaceApi.Controllers
 
             return View(homeAmenity);
         }
+
         [HttpPost]
         public ActionResult Index(CreateAmenityDTO amenity)
-        
         {
             _amenityService.CreateAmenity(amenity);
 
