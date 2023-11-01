@@ -11,6 +11,7 @@ namespace Accommodation.Application.Mappers
         {
             return new HotelGroupDTO()
             {
+                Id = hotelGroup.Id,
                 CityId = hotelGroup.CityId,
                 LatinTitle = hotelGroup.LatinTitle,
                 NativeTitle = hotelGroup.NativeTitle

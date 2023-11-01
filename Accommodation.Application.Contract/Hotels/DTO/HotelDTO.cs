@@ -19,7 +19,7 @@ namespace Accommodation.Application.Contract.Hotels.DTO
 
         public List<AmenityDTO> Amenities { get; set; }
 
-        public List<AmenityCheckbox> AmenityCheckboxes { get; set; }
+        public string[] AvailableAmenities { get; set; }
 
         public string Location { get; set; }
 

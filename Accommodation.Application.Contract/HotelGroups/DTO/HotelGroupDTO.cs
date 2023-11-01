@@ -5,6 +5,8 @@ namespace Accommodation.Application.Contract.HotelGroups.DTO
 {
     public class HotelGroupDTO
     {
+        public int Id { get; set; }
+
         public string LatinTitle { get; set; }
 
         public string NativeTitle { get; set; }

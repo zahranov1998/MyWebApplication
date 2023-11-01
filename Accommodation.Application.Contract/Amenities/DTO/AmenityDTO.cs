@@ -3,6 +3,7 @@
     public class AmenityDTO
     {
         public string Title { get; set; }
+        public int Key { get; set; }
     }
 
     public class AmenityCheckbox

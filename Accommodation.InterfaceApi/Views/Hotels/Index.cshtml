@@ -27,7 +27,8 @@
         <div class="col-2">City N/A</div>
         <div class="col-2">Grade N/A</div>
         <div class="col-2">
-            @Html.ActionLink("Edit", "Edit", new { id = 1234 })/<a href="/delete">Delete</a>
+            @Html.ActionLink("Edit", "Edit", new { id = @hotel.Id })/ @*/<a href="/delete">Delete</a>*@
+            @Html.ActionLink("Delete", "Delete", new { id = @hotel.Id })
         </div>
     </div>
     }

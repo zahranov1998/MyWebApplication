@@ -33,7 +33,6 @@ namespace Accommodation.InterfaceApi.Controllers
             var amenityCheckboxes = new List<AmenityCheckbox>();
             var hotelGroups = _hotelGroupService.GetALLHotelGroups();
 
-
             foreach (var amenityDto in amenities)
             {
                 amenityCheckboxes.Add(new AmenityCheckbox(){Name = amenityDto.Title,Value = amenityDto.Title,Checked = false});
@@ -55,12 +54,6 @@ namespace Accommodation.InterfaceApi.Controllers
         {
             addHotel.Hotel.Amenities = new List<AmenityDTO>();
 
-            foreach (var item in addHotel.AmenityCheckboxes)
-            {
-                //todo insert dare mishe be amenity ha
-                if(item.Checked)
-                    addHotel.Hotel.Amenities.Add(new AmenityDTO(){Title = item.Name});
-            }
 
             _hotelService.CreateHotel(addHotel.Hotel);
 
@@ -76,21 +69,19 @@ namespace Accommodation.InterfaceApi.Controllers
         }
 
 
-        //public ActionResult Edit(int id)
-        //{
-        //    var service = new HotelService();
+        public ActionResult Edit(int id)
+        {
+            var hotel = _hotelService.GetHotelById(id);
 
-        //    var model = service.GetAllHotels();
-        //    return View(model);
-        //}
+            return View(hotel);
+        }
 
         //[HttpPost]
-        //public ActionResult Edit()
+        //public ActionResult Edit(HotelDTO hotel)
         //{
-        //    var service = new HotelService();
+        //    _hotelService.CreateHotel(hotel);
 
-        //    var model = service.GetAllHotels();
-        //    return View(model);
+        //    return RedirectToAction("Index");
         //}
     }
 }

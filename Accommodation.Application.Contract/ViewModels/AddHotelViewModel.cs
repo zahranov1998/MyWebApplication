@@ -15,6 +15,6 @@ namespace Accommodation.Application.Contract.ViewModels
 
         public List<AmenityCheckbox> AmenityCheckboxes { get; set; }
 
-        public IEnumerable<HotelGroupDTO> HotelGroups { get; set; }
+        public List<HotelGroupDTO> HotelGroups { get; set; }
     }
 }

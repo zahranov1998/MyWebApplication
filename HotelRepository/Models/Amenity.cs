@@ -20,6 +20,12 @@ namespace Accommodation.Domain.Models
             Title = title;
         }
 
+        public Amenity(int id, string title)
+        {
+            Title = title;
+            Id = id;
+        }
+
         public void Update(string title)
         {
             Title = title;

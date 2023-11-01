@@ -1,7 +1,6 @@
 ﻿@{
     Layout = "~/Views/_Shared/_LayoutPage.cshtml";
 }
-@*@model Accommodation.Application.Contract.Hotels.DTO.HotelDTO*@
 @using System.Activities.Statements
 @using System.Linq
 @using Accommodation.Application.Contract.Amenities.DTO
@@ -47,13 +46,13 @@
                         @Html.EditorFor(a => a.Hotel.District)
                     </div>
                     <div class="col-3">
-                        <select name="HotelGroup">
+                        <select name="Hotel.HotelGroupId">
                             <option>
                                 Choose
                             </option>
                             @foreach (var group in Model.HotelGroups)
                             {
-                                <option  value="1">@group.LatinTitle</option>
+                                <option value="@group.Id">@group.LatinTitle</option>
                             }
                         </select>
                     </div>
@@ -118,14 +117,26 @@
                     Amenities
                 </div>
                 <div class="row">
-                    @for (int i = 0; i< Model.AmenityCheckboxes.Count; i++)
+
+                    @*@for (int i = 0; i < Model.AmenityCheckboxes.Count; i++)
+        {
+            <div class="col-2 text-end">
+                @Html.HiddenFor(a => Model.AmenityCheckboxes[i].Value)
+                @Html.HiddenFor(a => Model.AmenityCheckboxes[i].Name)
+                <label>@Model.AmenityCheckboxes[i].Name</label>
+                @Html.CheckBoxFor(a => Model.AmenityCheckboxes[i].Checked)
+            </div>
+        }*@
+                    @{
+                        var index = 1;
+                    }
+                    @foreach (var am in Model.Amenities)
                     {
-                        <div class="col-2 text-end">
-                            @Html.HiddenFor(a => Model.AmenityCheckboxes[i].Value)
-                            @Html.HiddenFor(a => Model.AmenityCheckboxes[i].Name)
-                            <label>@Model.AmenityCheckboxes[i].Name</label>
-                            @Html.CheckBoxFor(a => Model.AmenityCheckboxes[i].Checked)
-                        </div>
+                        <label for="Hotel.AvailableAmenities-@index">@am.Title</label>
+                        string x = @am.Key.ToString();
+                        <input type="checkbox" id="Hotel.AvailableAmenities-@index" name="Hotel.AvailableAmenities" value="@x" />
+
+                        index++;
                     }
                 </div>
             </div>

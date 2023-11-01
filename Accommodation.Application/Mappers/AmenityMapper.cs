@@ -9,7 +9,7 @@ namespace Accommodation.Application.Mappers
     {
         public static AmenityDTO MapToDTO(Amenity amenity)
         {
-            return new AmenityDTO() { Title = amenity.Title };
+            return new AmenityDTO() { Key =amenity.Id ,Title = amenity.Title };
         }
 
         public static List<AmenityDTO> MapToDTOs(List<Amenity> amenities)
@@ -19,7 +19,7 @@ namespace Accommodation.Application.Mappers
 
         public static Amenity MapDTOToModel(AmenityDTO amenityDTO)
         {
-            return new Amenity(amenityDTO.Title);
+            return new Amenity(amenityDTO.Key,amenityDTO.Title);
         }
 
         public static List<Amenity> MapDTOsToModelList(List<AmenityDTO> amenitieDTOs)
