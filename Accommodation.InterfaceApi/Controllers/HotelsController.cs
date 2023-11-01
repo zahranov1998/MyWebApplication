@@ -53,6 +53,14 @@ namespace Accommodation.InterfaceApi.Controllers
         [HttpPost]
         public ActionResult AddHotel(AddHotelViewModel addHotel)
         {
+            addHotel.Hotel.Amenities = new List<AmenityDTO>();
+
+            foreach (var item in addHotel.AmenityCheckboxes)
+            {
+                //todo insert dare mishe be amenity ha
+                if(item.Checked)
+                    addHotel.Hotel.Amenities.Add(new AmenityDTO(){Title = item.Name});
+            }
 
             _hotelService.CreateHotel(addHotel.Hotel);
 
@@ -64,7 +72,7 @@ namespace Accommodation.InterfaceApi.Controllers
         {
             var hotel =_hotelService.GetHotelById(id);
 
-            return View();
+            return View(hotel);
         }
 
 

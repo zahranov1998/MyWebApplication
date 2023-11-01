@@ -1,9 +1,67 @@
 ﻿@{
-    Layout = null;
+    Layout = "~/Views/_Shared/_LayoutPage.cshtml";
 }
 @model Accommodation.Application.Contract.Hotels.DTO.HotelDTO
 
 
-<div class="border border-primary mx-2">
-hello
+<div class="container-fluid border">
+    <div class="row">
+        <div class="col">
+            @Html.NameFor(a=>a.NativeName)
+        </div>
+        <div class="col">
+            @Html.Name(Model.NativeName)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            @Html.NameFor(a=>a.LatinName)
+        </div>
+        <div class="col">
+            @Html.Name(Model.LatinName)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            @Html.NameFor(a=>a.Amenities)
+        </div>
+        <div class="col">
+            @foreach (var amenity in Model.Amenities)
+            {
+                @Html.Name(amenity.Title + "  ")
+            }
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            @Html.NameFor(a=>a.HotelGroupId)
+        </div>
+        <div class="col">
+            @Html.Name(Model.HotelGroupId.ToString())
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            @Html.NameFor(a=>a.District)
+        </div>
+        <div class="col">
+            @Html.Name(Model.District)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            @Html.NameFor(a=>a.Description)
+        </div>
+        <div class="col">
+            @Html.Name(Model.Description)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            @Html.NameFor(a=>a.Rules)
+        </div>
+        <div class="col">
+            @Html.Name(Model.Rules)
+        </div>
+    </div>
 </div>

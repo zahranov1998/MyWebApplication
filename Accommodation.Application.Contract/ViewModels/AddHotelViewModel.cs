@@ -9,6 +9,8 @@ namespace Accommodation.Application.Contract.ViewModels
     {
         public List<AmenityDTO> Amenities { get; set; }
 
+        //public List<string> AmenityTitles { get; set; }
+
         public HotelDTO Hotel { get; set; }
 
         public List<AmenityCheckbox> AmenityCheckboxes { get; set; }

@@ -46,18 +46,16 @@
                     <div class="col-3">
                         @Html.EditorFor(a => a.Hotel.District)
                     </div>
-                    <div>
-                        @*@Html.DropDownListFor(a=>a.Hotel.HotelGroupId, Model.HotelGroups,)*@
+                    <div class="col-3">
                         <select name="HotelGroup">
                             <option>
                                 Choose
                             </option>
                             @foreach (var group in Model.HotelGroups)
                             {
-                                <option value="1">@group.LatinTitle</option>
+                                <option  value="1">@group.LatinTitle</option>
                             }
                         </select>
-
                     </div>
                 </div>
             </div>
