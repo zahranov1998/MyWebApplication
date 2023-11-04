@@ -14,8 +14,8 @@ namespace Accommodation.EF.Mappings
 
             HasMany(x => x.Hotels).WithMany(x => x.Amenities).Map(z =>
             {
-                z.MapRightKey("AmenityId");
-                z.MapLeftKey("HotelId");
+                z.MapRightKey("HotelId");
+                z.MapLeftKey("AmenityId");
                 z.ToTable("HotelAmenities");
             });
         }

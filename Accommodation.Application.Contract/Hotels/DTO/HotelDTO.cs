@@ -15,6 +15,8 @@ namespace Accommodation.Application.Contract.Hotels.DTO
 
         public string District { get; set; }
 
+        public List<AmenityDTO> AllAmenities { get; set; }
+
         public List<AmenityDTO> Amenities { get; set; }
 
         public string[] AvailableAmenities { get; set; }

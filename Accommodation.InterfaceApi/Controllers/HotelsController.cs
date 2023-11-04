@@ -72,6 +72,7 @@ namespace Accommodation.InterfaceApi.Controllers
         public ActionResult Edit(int id)
         {
             var hotel = _hotelService.GetHotelById(id);
+            hotel.AllAmenities = _amenityService.GetALLAmenities();
 
             return View(hotel);
         }
