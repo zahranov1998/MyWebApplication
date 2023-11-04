@@ -34,10 +34,13 @@
                     </div>
                 </div>
             </div>
+          
+     
             <div class="container">
                 <div class="row">
                     <div class="col-3">
                         @Html.EditorFor(a => a.NativeName)
+                        
                     </div>
                     <div class="col-3">
                         @Html.EditorFor(a => a.LatinName)
@@ -54,7 +57,7 @@
             <div class="container">
                 <div class="row ">
                     <div class="col-3">
-                        City Name
+                        
                     </div>
                     <div class="col-3">
                         City Latin Name
@@ -115,13 +118,37 @@
                     }
                     @foreach (var am in Model.Amenities)
                     {
-                        <label for="Hotel.AvailableAmenities-@index">@am.Title</label>
-                        string x = @am.Key.ToString();
-                        <input type="checkbox" id="Hotel.AvailableAmenities-@index" name="Hotel.AvailableAmenities" value="@x" />
+                        <label for="@am.Title-@index">@am.Title</label>
+
+                        <input type="checkbox" id="@am.Title-@index" name="AvailableAmenities" value="@am.Key" />
 
                         index++;
                     }
+
+                    @*@for (int i = 1; i < Model.Amenities.Count; i++)
+                    {
+                        <label for="Hotel.AvailableAmenities-@i">@Model.Amenities[i].Title</label>
+                        string x = @Model.Amenities[i].Key.ToString();
+                        <input type="checkbox" id="Hotel.AvailableAmenities-@i" name="Hotel.AvailableAmenities" value="@x" />
+                    }*@
                 </div>
+                    @*<div class="row text-end">
+       
+                        @{
+                            var index = 1;
+                        }
+                        @foreach (var am in Model.Amenities)
+                        {
+                            <div class ="col-2">
+                                <label for="Hotel.AvailableAmenities-@index">@am.Title</label>
+                                <input type="checkbox" id="Hotel.AvailableAmenities-@index" name="Hotel.AvailableAmenities" value=" @am.Key.ToString()" />
+
+                            </div>
+                            index++;
+
+                        }
+                    </div>*@
+                @*</div>*@
             </div>
             <br>
             <div class="container text-center">
@@ -131,7 +158,9 @@
                 <div class="row ">
 
                     <div class="col-11">
-                        <textarea name="Text1" cols="160" rows="5"></textarea>
+                        <textarea name="Text1" cols="160" rows="5">
+                        @Model.Description
+                        </textarea>
                     </div>
                 </div>
             </div>

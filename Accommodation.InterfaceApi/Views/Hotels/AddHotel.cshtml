@@ -127,17 +127,23 @@
                 @Html.CheckBoxFor(a => Model.AmenityCheckboxes[i].Checked)
             </div>
         }*@
-                    @{
-                        var index = 1;
-                    }
-                    @foreach (var am in Model.Amenities)
-                    {
-                        <label for="Hotel.AvailableAmenities-@index">@am.Title</label>
-                        string x = @am.Key.ToString();
-                        <input type="checkbox" id="Hotel.AvailableAmenities-@index" name="Hotel.AvailableAmenities" value="@x" />
+                    <div class="row text-end">
+                        
+                        @{
+                            var index = 1;
+                        }
+                        @foreach (var am in Model.Amenities)
+                        {
+                            <div class ="col-2">
+                                <label for="Hotel.AvailableAmenities-@index">@am.Title</label>
+                                <input type="checkbox" id="Hotel.AvailableAmenities-@index" name="Hotel.AvailableAmenities" value=" @am.Key.ToString()" />
 
-                        index++;
-                    }
+                            </div>
+                            index++;
+
+                        }
+                    </div>
+       
                 </div>
             </div>
             <br>
@@ -160,7 +166,9 @@
                 <div class="row ">
 
                     <div class="col-11">
-                        <textarea name="Text1" cols="160" rows="5"></textarea>
+                        <textarea name="Text1" cols="160" rows="5">
+                            @Html.EditorFor(a => a.Hotel.Rules)
+                        </textarea>
                     </div>
                 </div>
             </div>

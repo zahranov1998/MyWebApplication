@@ -89,7 +89,6 @@
     <Compile Include="ViewModels\HotelGroupViewModel.cs" />
     <Compile Include="ViewModels\HotelDTOViewModel.cs" />
     <Compile Include="ViewModels\AddHotelViewModel.cs" />
-    <Compile Include="ViewModels\SubjectModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HotelRepository\Accommodation.Domain.csproj">

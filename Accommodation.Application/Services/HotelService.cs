@@ -1,4 +1,5 @@
-﻿using Accommodation.Application.Contract.Hotels.DTO;
+﻿using System;
+using Accommodation.Application.Contract.Hotels.DTO;
 using Accommodation.Application.Contract.Hotels.Services;
 using Accommodation.Application.Mappers;
 using Accommodation.Domain.Models;
@@ -28,7 +29,8 @@ namespace Accommodation.Application.Services
 
         public void CreateHotel(HotelDTO hotelDTO)
         {
-            var selectedAmenityIds = hotelDTO.AvailableAmenities.Select(x => int.Parse(x)).ToList();
+            var selectedAmenityIds = new List<int>();
+            //var selectedAmenityIds = hotelDTO.AvailableAmenities.Select(x => int.Parse(x)).ToList();
             var selectedAmenities= amenityRepository.GetByRange(selectedAmenityIds);
 
             //var amenityDTOs = selectedAmenityIds.Select(amId => new AmenityDTO() { Key = amId }).ToList();
@@ -74,6 +76,27 @@ namespace Accommodation.Application.Services
 
             selectedHotel.Update(hotel.LatinName, hotel.NativeName, hotel.District, amenities, hotel.Location, hotel.Description, rooms, hotel.Rules, tags, hotel.HotelGroupId, hotel.IsDeleted);
 
+            hotelRepository.Update();
+        }
+
+        public void UpdateHotelDTO(HotelDTO hotel)
+        {
+            var selectedHotel = hotelRepository.GetById(hotel.Id);
+
+            var amenityIds = new List<int>();
+
+            foreach (var item in hotel.AvailableAmenities)
+            {
+                amenityIds.Add(Convert.ToInt32(item));
+            }
+
+            var selectedAmenities = amenityRepository.GetByRange(amenityIds);
+            //todo
+            var tags = TagMapper.MapToModelList(hotel.Tags);
+            var rooms = RoomMapper.MapToModelList(hotel.Rooms);
+
+            selectedHotel.Update(hotel.LatinName, hotel.NativeName, hotel.District, selectedAmenities, hotel.Location, hotel.Description, rooms, hotel.Rules, tags, hotel.HotelGroupId, hotel.IsDeleted);
+           
             hotelRepository.Update();
         }
     }

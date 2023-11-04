@@ -76,12 +76,12 @@ namespace Accommodation.InterfaceApi.Controllers
             return View(hotel);
         }
 
-        //[HttpPost]
-        //public ActionResult Edit(HotelDTO hotel)
-        //{
-        //    _hotelService.CreateHotel(hotel);
+        [HttpPost]
+        public ActionResult Edit(HotelDTO hotel)
+         {
+            _hotelService.UpdateHotelDTO(hotel);
 
-        //    return RedirectToAction("Index");
-        //}
+            return RedirectToAction("Index");
+        }
     }
 }
