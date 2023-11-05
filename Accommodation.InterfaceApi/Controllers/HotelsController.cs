@@ -84,5 +84,12 @@ namespace Accommodation.InterfaceApi.Controllers
 
             return RedirectToAction("Index");
         }
+
+        public ActionResult Delete(int id)
+        {
+            _hotelService.DeleteHotel(id);
+
+            return RedirectToAction("Index");
+        }
     }
 }
