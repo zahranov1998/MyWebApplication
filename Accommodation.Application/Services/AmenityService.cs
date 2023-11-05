@@ -26,6 +26,11 @@ namespace Accommodation.Application.Services
             AmenityRepository.Create(amenity);
         }
 
+        public void UpdateAmenity(UpdateAmenityDTO amenity)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public void DeleteAmenity(int id)
         {
             var amenity = AmenityRepository.GetById(id);
@@ -47,9 +52,9 @@ namespace Accommodation.Application.Services
             return AmenityMapper.MapToDTO(amenity);
         }
 
-        public void UpdateAmenity(UpdateAmenityDTO amenity)
+        public void UpdateAmenity(AmenityDTO amenity)
         {
-            var selectedAmenity = AmenityRepository.GetById(amenity.Id);
+            var selectedAmenity = AmenityRepository.GetById(amenity.Key);
 
             selectedAmenity.Update(amenity.Title);
 

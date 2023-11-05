@@ -138,6 +138,7 @@
     <Content Include="Views\Amenities\Index.cshtml" />
     <Content Include="Views\Hotels\Details.cshtml" />
     <Content Include="Views\Tags\Index.cshtml" />
+    <Content Include="Views\Amenities\Edit.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

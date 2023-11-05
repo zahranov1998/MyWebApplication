@@ -1,0 +1,35 @@
+﻿@{
+    Layout = "~/Views/_Shared/_LayoutPage.cshtml";
+}
+
+@using System.Web.UI.WebControls
+@model Accommodation.Application.Contract.Amenities.DTO.AmenityDTO
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    <Main class="container-fluid py-2">
+
+        @using (Html.BeginForm())
+        {
+            <div class="row my-3">
+                <div class="col-6 text-end ">
+                    @Html.LabelFor(a => a.Title)
+                    @Html.ValueFor(a=>a.Key)
+                </div>
+                <div class="col text-left">
+                    @Html.EditorFor(a => a.Title)
+                    <input type="submit" class="btn btn-success" onclick="" value="Save" />
+                    @*@Html.ActionLink("","",null , Button.DisabledCssClass,new {id= Model.Key})*@
+                    @Html.HiddenFor(a=>a.Key)
+                </div>
+            </div>
+        }
+    </Main>
+</body>
+</html>

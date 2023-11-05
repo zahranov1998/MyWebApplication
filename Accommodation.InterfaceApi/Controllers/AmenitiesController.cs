@@ -33,5 +33,27 @@ namespace Accommodation.InterfaceApi.Controllers
 
             return RedirectToAction("Index");
         }
+
+        public ActionResult Edit(int id)
+        {
+            var amenity = _amenityService.GetAmenityById(id);
+
+            return View(amenity);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(AmenityDTO amenity)
+        {
+            _amenityService.UpdateAmenity(amenity);
+
+            return View(amenity);
+        }
+
+        public ActionResult Delete(int id)
+        {
+            _amenityService.DeleteAmenity(id);
+
+            return RedirectToAction("Index");
+        }
     }
 }
