@@ -85,13 +85,9 @@
     <Compile Include="Mappings\HotelMapping.cs" />
     <Compile Include="Mappings\RoomMapping.cs" />
     <Compile Include="Mappings\TagMapping.cs" />
-    <Compile Include="Migrations\202310171205457_001_initialMigration.cs" />
-    <Compile Include="Migrations\202310171205457_001_initialMigration.designer.cs">
-      <DependentUpon>202310171205457_001_initialMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202310171243525_002_initialMigration.cs" />
-    <Compile Include="Migrations\202310171243525_002_initialMigration.designer.cs">
-      <DependentUpon>202310171243525_002_initialMigration.cs</DependentUpon>
+    <Compile Include="Migrations\202311050713109__01_14081402.cs" />
+    <Compile Include="Migrations\202311050713109__01_14081402.designer.cs">
+      <DependentUpon>202311050713109__01_14081402.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migration\AccommodationDbContext.cs" />
@@ -115,11 +111,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202310171205457_001_initialMigration.resx">
-      <DependentUpon>202310171205457_001_initialMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202310171243525_002_initialMigration.resx">
-      <DependentUpon>202310171243525_002_initialMigration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202311050713109__01_14081402.resx">
+      <DependentUpon>202311050713109__01_14081402.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -7,13 +7,13 @@ namespace Accommodation.EF.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class _001_initialMigration : IMigrationMetadata
+    public sealed partial class _01_14081402 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(_001_initialMigration));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(_01_14081402));
         
         string IMigrationMetadata.Id
         {
-            get { return "202310171205457_001_initialMigration"; }
+            get { return "202311050713109__01_14081402"; }
         }
         
         string IMigrationMetadata.Source

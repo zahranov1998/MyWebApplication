@@ -3,7 +3,7 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class _002_initialMigration : DbMigration
+    public partial class _01_14081402 : DbMigration
     {
         public override void Up()
         {
@@ -48,6 +48,27 @@
                 .Index(t => t.CityId);
             
             CreateTable(
+                "dbo.Cities",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Name = c.String(nullable: false),
+                        CountryId = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Countries", t => t.CountryId, cascadeDelete: true)
+                .Index(t => t.CountryId);
+            
+            CreateTable(
+                "dbo.Countries",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Name = c.String(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
                 "dbo.Rooms",
                 c => new
                     {
@@ -86,39 +107,41 @@
                 "dbo.HotelAmenities",
                 c => new
                     {
-                        HotelId = c.Int(nullable: false),
                         AmenityId = c.Int(nullable: false),
+                        HotelId = c.Int(nullable: false),
                     })
-                .PrimaryKey(t => new { t.HotelId, t.AmenityId })
-                .ForeignKey("dbo.Amenities", t => t.HotelId, cascadeDelete: true)
-                .ForeignKey("dbo.Hotels", t => t.AmenityId, cascadeDelete: true)
-                .Index(t => t.HotelId)
-                .Index(t => t.AmenityId);
+                .PrimaryKey(t => new { t.AmenityId, t.HotelId })
+                .ForeignKey("dbo.Amenities", t => t.AmenityId, cascadeDelete: true)
+                .ForeignKey("dbo.Hotels", t => t.HotelId, cascadeDelete: true)
+                .Index(t => t.AmenityId)
+                .Index(t => t.HotelId);
             
-            AlterColumn("dbo.Countries", "Name", c => c.String(nullable: false));
         }
         
         public override void Down()
         {
-            DropForeignKey("dbo.HotelAmenities", "AmenityId", "dbo.Hotels");
-            DropForeignKey("dbo.HotelAmenities", "HotelId", "dbo.Amenities");
+            DropForeignKey("dbo.HotelAmenities", "HotelId", "dbo.Hotels");
+            DropForeignKey("dbo.HotelAmenities", "AmenityId", "dbo.Amenities");
             DropForeignKey("dbo.HotelTags", "HotelId", "dbo.Tags");
             DropForeignKey("dbo.HotelTags", "TagId", "dbo.Hotels");
             DropForeignKey("dbo.Rooms", "HotelId", "dbo.Hotels");
             DropForeignKey("dbo.Hotels", "HotelGroupId", "dbo.HotelGroups");
             DropForeignKey("dbo.HotelGroups", "CityId", "dbo.Cities");
-            DropIndex("dbo.HotelAmenities", new[] { "AmenityId" });
+            DropForeignKey("dbo.Cities", "CountryId", "dbo.Countries");
             DropIndex("dbo.HotelAmenities", new[] { "HotelId" });
+            DropIndex("dbo.HotelAmenities", new[] { "AmenityId" });
             DropIndex("dbo.HotelTags", new[] { "HotelId" });
             DropIndex("dbo.HotelTags", new[] { "TagId" });
             DropIndex("dbo.Rooms", new[] { "HotelId" });
+            DropIndex("dbo.Cities", new[] { "CountryId" });
             DropIndex("dbo.HotelGroups", new[] { "CityId" });
             DropIndex("dbo.Hotels", new[] { "HotelGroupId" });
-            AlterColumn("dbo.Countries", "Name", c => c.String());
             DropTable("dbo.HotelAmenities");
             DropTable("dbo.HotelTags");
             DropTable("dbo.Tags");
             DropTable("dbo.Rooms");
+            DropTable("dbo.Countries");
+            DropTable("dbo.Cities");
             DropTable("dbo.HotelGroups");
             DropTable("dbo.Hotels");
             DropTable("dbo.Amenities");

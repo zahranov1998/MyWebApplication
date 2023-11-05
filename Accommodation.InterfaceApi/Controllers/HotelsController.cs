@@ -79,7 +79,7 @@ namespace Accommodation.InterfaceApi.Controllers
 
         [HttpPost]
         public ActionResult Edit(HotelDTO hotel)
-         {
+        {
             _hotelService.UpdateHotelDTO(hotel);
 
             return RedirectToAction("Index");
