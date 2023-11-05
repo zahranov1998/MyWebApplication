@@ -20,12 +20,10 @@
             <div class="row my-3">
                 <div class="col-6 text-end ">
                     @Html.LabelFor(a => a.Title)
-                    @Html.ValueFor(a=>a.Key)
                 </div>
                 <div class="col text-left">
                     @Html.EditorFor(a => a.Title)
-                    <input type="submit" class="btn btn-success" onclick="" value="Save" />
-                    @*@Html.ActionLink("","",null , Button.DisabledCssClass,new {id= Model.Key})*@
+                    <input type="submit" class="btn btn-success" value="Save" />
                     @Html.HiddenFor(a=>a.Key)
                 </div>
             </div>
