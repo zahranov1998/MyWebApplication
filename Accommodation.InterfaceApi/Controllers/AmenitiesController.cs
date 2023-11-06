@@ -46,7 +46,7 @@ namespace Accommodation.InterfaceApi.Controllers
         {
             _amenityService.UpdateAmenity(amenity);
 
-            return View(amenity);
+            return RedirectToAction("Index");
         }
 
         public ActionResult Delete(int id)

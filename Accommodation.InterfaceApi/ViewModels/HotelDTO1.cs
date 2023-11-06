@@ -1,6 +1,4 @@
-﻿using Accommodation.InterfaceApi.ApiControllers;
-
-namespace Accommodation.InterfaceApi.ViewModels
+﻿namespace Accommodation.InterfaceApi.ViewModels
 {
     public class HotelDTO1
     {
@@ -26,6 +24,6 @@ namespace Accommodation.InterfaceApi.ViewModels
 
         public string Description { get; set; }
 
-        public  string Rules { get; set; }
+        public string Rules { get; set; }
     }
 }

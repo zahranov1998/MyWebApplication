@@ -7,6 +7,7 @@ using Accommodation.EF.Migration;
 using Accommodation.EF.Repositories;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Accommodation.Application.Services
 {
@@ -27,18 +28,10 @@ namespace Accommodation.Application.Services
 
         public void CreateHotel(HotelDTO hotelDTO)
         {
-            var selectedAmenityIds = new List<int>();
-            //var selectedAmenityIds = hotelDTO.AvailableAmenities.Select(x => int.Parse(x)).ToList();
+            var selectedAmenityIds = hotelDTO.AvailableAmenities.Select(x => int.Parse(x)).ToList();
             var selectedAmenities = amenityRepository.GetByRange(selectedAmenityIds);
-
-            //var amenityDTOs = selectedAmenityIds.Select(amId => new AmenityDTO() { Key = amId }).ToList();
-
-
-
-            //var amenities = AmenityMapper.MapDTOsToModelList(amenityDTOs);
             var tags = TagMapper.MapToModelList(hotelDTO.Tags);
             var rooms = RoomMapper.MapToModelList(hotelDTO.Rooms);
-
             var hotel = new Hotel(hotelDTO.LatinName, hotelDTO.NativeName, hotelDTO.District, selectedAmenities, hotelDTO.Location, hotelDTO.Description, rooms, hotelDTO.Rules, tags, hotelDTO.HotelGroupId);
 
             hotelRepository.Create(hotel);
@@ -89,7 +82,6 @@ namespace Accommodation.Application.Services
             }
 
             var selectedAmenities = amenityRepository.GetByRange(amenityIds);
-            //todo
             var tags = TagMapper.MapToModelList(hotel.Tags);
             var rooms = RoomMapper.MapToModelList(hotel.Rooms);
 
